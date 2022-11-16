@@ -1,54 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
-        {
-            "name": "unit01-tictactoe",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-unit01-tictactoe",
-            "program": "${workspaceFolder}/unit01-tictactoe/bin/Debug/net6.0/unit01-tictactoe.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/unit01-tictactoe",
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen",
-            "stopAtEntry": false
-        },
-        {
-            "name": "unit02-hilo",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-unit02-hilo",
-            "program": "${workspaceFolder}/unit02-hilo/bin/Debug/net6.0/unit02-hilo.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/unit02-hilo",
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen",
-            "stopAtEntry": false
-        },
-        {
-            "name": "unit03-jumper",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-unit03-jumper",
-            "program": "${workspaceFolder}/unit03-jumper/bin/Debug/net6.0/unit03-jumper.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/unit03-jumper",
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen",
-            "stopAtEntry": false
-        },
-        {
-            "name": "unit04-greed",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-unit04-greed",
-            "program": "${workspaceFolder}/unit04-greed/bin/Debug/net6.0/unit04-greed.dll",
-            "args": [],
-            "cwd": "${workspaceFolder}/unit04-greed",
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen",
-            "stopAtEntry": false
-        },
+        
         {
             "name": "unit05-cycle",
             "type": "coreclr",
