@@ -31,6 +31,7 @@ namespace unit05_cycle.Game.Scripting
         //    c) call the MoveNext() method on each actor.
         public void Execute(Cast cast, Script script)
         {
+            
             List<Actor> actors = cast.GetAllActors();
             Snake snakeOne = (Snake)cast.GetFirstActor("snake");
             Snake snakeTwo = (Snake)cast.GetSecondActor("snake");
@@ -38,12 +39,10 @@ namespace unit05_cycle.Game.Scripting
             {
                 actor.MoveNext();
                 _counter += 1;
-                Console.WriteLine(_counter);
-                if(_counter % 10 == 0)
+                if(_counter % 50 == 0)
                 {
                     snakeOne.GrowTail(1);
-                    snakeTwo.GrowTail(1);
-
+                    snakeTwo.GrowTail(1);  
                 }
             }
         }

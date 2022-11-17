@@ -48,7 +48,7 @@ namespace unit05_cycle.Game.Casting
         /// </summary>
         /// <returns>The position.</returns>
         public Point GetPosition()
-        {
+        { 
             return _position;
         }
 
