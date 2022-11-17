@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using unit05_cycle.Game.Casting;
 
@@ -13,6 +14,9 @@ namespace unit05_cycle.Game.Scripting
 
     public class MoveActorsAction : Action
     {
+
+        int _counter = 1;
+
         /// <summary>
         /// Constructs a new instance of MoveActorsAction.
         /// </summary>
@@ -28,12 +32,20 @@ namespace unit05_cycle.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             List<Actor> actors = cast.GetAllActors();
-            foreach (Actor actor in actors)
-
+            Snake snakeOne = (Snake)cast.GetFirstActor("snake");
+            Snake snakeTwo = (Snake)cast.GetSecondActor("snake");
+            foreach(Actor actor in actors)
+            {
+                actor.MoveNext();
+                _counter += 1;
+                Console.WriteLine(_counter);
+                if(_counter % 10 == 0)
                 {
-                    actor.MoveNext();
-                    
+                    snakeOne.GrowTail(1);
+                    snakeTwo.GrowTail(1);
+
                 }
+            }
         }
 
         
