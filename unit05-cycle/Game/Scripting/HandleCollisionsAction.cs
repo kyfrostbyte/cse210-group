@@ -47,16 +47,7 @@ namespace unit05_cycle.Game.Scripting
             Score score = (Score)cast.GetFirstActor("score");
             
             
-            if (snake1.GetPosition().Equals(snake2.GetPosition()))
-            {
-                _isGameOver = true;
-            }
-
-             if (snake2.GetPosition().Equals(snake1.GetPosition()))
-            {
-                _isGameOver = true;
-            }
-
+            // MUST ADD LOGIC FOR THIS
 
         }
 
