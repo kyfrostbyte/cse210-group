@@ -18,19 +18,13 @@ namespace unit05_cycle
         static void Main(string[] args)
         {
             Cast cast = new Cast();
-            cast.AddActor("snake", new Snake(100, 100));
-            cast.AddActor("snake", new Snake(300, 300));
+            
+            cast.AddActor("snake", new Snake(100, 100, Constants.RED));
+            cast.AddActor("snake", new Snake(300, 300, Constants.YELLOW));
 
             Snake snake = (Snake)cast.GetFirstActor("snake");
             Snake snake2 = (Snake)cast.GetSecondActor("snake");
 
-
-            List<Actor> segments2 = snake2.GetSegments();
-            foreach(Actor segment in segments2)
-            {
-                segment.SetColor(Constants.RED);
-            }
-            segments2[0].SetColor(Constants.WHITE);
 
             cast.AddActor("score", new Score());
 
