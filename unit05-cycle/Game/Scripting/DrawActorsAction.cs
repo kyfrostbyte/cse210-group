@@ -25,13 +25,12 @@ namespace unit05_cycle.Game.Scripting
         public void Execute(Cast cast, Script script)
         {
             Snake snake = (Snake)cast.GetFirstActor("snake");
-            snake.SetPosition(new Point(300, 300));
             List<Actor> segments = snake.GetSegments();
             
         
 
             Snake snake2 = (Snake)cast.GetSecondActor("snake");
-            snake2.SetPosition(new Point(100, 100));
+            
             List<Actor> segments2 = snake2.GetSegments();
             
             

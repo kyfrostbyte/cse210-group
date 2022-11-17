@@ -102,7 +102,6 @@ namespace unit05_cycle.Game.Scripting
                 {
                     segment.SetColor(Constants.WHITE);
                 }
-                food.SetColor(Constants.WHITE);
             }
         }
 

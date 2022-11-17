@@ -2,7 +2,7 @@ using System;
 using Microsoft.VisualBasic;
 using unit05_cycle.Game.Casting;
 
-namespace unit05_cycle.Game
+namespace unit05_cycle
 {
     public class Constants
     {
