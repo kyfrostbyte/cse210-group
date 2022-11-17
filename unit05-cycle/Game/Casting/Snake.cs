@@ -17,9 +17,9 @@ namespace unit05_cycle.Game.Casting
         /// <summary>
         /// Constructs a new instance of a Snake.
         /// </summary>
-        public Snake(int x, int y)
+        public Snake(int x, int y, Color color)
         {
-            PrepareBody(x, y);
+            PrepareBody(x, y, color);
         }
 
         /// <summary>
@@ -100,9 +100,8 @@ namespace unit05_cycle.Game.Casting
         /// <summary>
         /// Prepares the snake body for moving.
         /// </summary>
-        private void PrepareBody(int x, int y)
+        private void PrepareBody(int x, int y, Color color)
         {
-
             for (int i = 0; i < Constants.SNAKE_LENGTH; i++)
             {
 
@@ -113,9 +112,6 @@ namespace unit05_cycle.Game.Casting
 
                 // if I = 0, return 8, else return #
                 string text = i == 0 ? "8" : "#";
-                Color color = i == 0 ? Constants.YELLOW : Constants.GREEN;
-
-
                 Actor segment = new Actor();
                 segment.SetPosition(position);
                 segment.SetVelocity(velocity);
