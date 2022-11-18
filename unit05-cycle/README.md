@@ -1,7 +1,8 @@
 TODO:
 
 1) Make snakes spawn in the correct location
-2) Fix collision so snakes die if their head touchs the other snake
+2) Fix collision so snakes die if their head touchs the other snake -DONE: G.W.
+2.1) Clean up code and make any additional improvements.
 3) Make snake leave a "trail" of some sorts -DONE: G.W.
 4) Add score mechanic? 
 

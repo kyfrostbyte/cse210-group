@@ -11,8 +11,8 @@ namespace unit05_cycle.Game.Casting
     public class Snake : Actor
     {
         private List<Actor> _segments = new List<Actor>();
-        int x;
-        int y;
+        // int x;
+        // int y;
 
         /// <summary>
         /// Constructs a new instance of a Snake.
