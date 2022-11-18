@@ -19,8 +19,8 @@ namespace unit05_cycle
         {
             Cast cast = new Cast();
             
-            cast.AddActor("snake", new Snake(100, 100, Constants.RED));
-            cast.AddActor("snake", new Snake(300, 300, Constants.YELLOW));
+            cast.AddActor("snake", new Snake(450, 200, Constants.RED));
+            cast.AddActor("snake", new Snake(450, 400, Constants.YELLOW));
 
             Snake snake = (Snake)cast.GetFirstActor("snake");
             Snake snake2 = (Snake)cast.GetSecondActor("snake");

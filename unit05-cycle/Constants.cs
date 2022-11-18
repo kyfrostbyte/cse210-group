@@ -14,7 +14,7 @@ namespace unit05_cycle
 
         public static int FRAME_RATE = 15;
         public static int FONT_SIZE = 15;
-        public static string CAPTION = "Snake";
+        public static string CAPTION = "Cycle";
         public static int SNAKE_LENGTH = 8;
 
         public static Color RED = new Color(255, 0, 0);
