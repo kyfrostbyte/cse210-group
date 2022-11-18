@@ -93,7 +93,7 @@ namespace unit05_cycle.Game.Scripting
             if (_isGameOver == true)
             {
                 // create a "game over" message
-                int x = Constants.MAX_X / 2 - Constants.MAX_X / 4;
+                int x = Constants.MAX_X / 2;
                 int y = Constants.MAX_Y / 2;
                 Point position = new Point(x, y);
 
