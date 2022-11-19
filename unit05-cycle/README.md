@@ -1,15 +1,22 @@
 TODO:
 
-1) Make snakes spawn in the correct location --DONE: G.W.
-2) Fix collision so snakes die if their head touchs the other snake --DONE: G.W.
+1) Spawn 2 cycles --DONE: A.A.
+2) Make it so color and spawn location of cycles can be passed into constructor --DONE: A.A.
+3) Add keybinds for 2nd Cycle --DONE: A.A.
+4) Make snakes spawn in the correct location --DONE: G.W.
+5) Fix collision so snakes die if their head touchs the other snake --DONE: G.W.
+6) Make snake leave a "trail" of some sorts --DONE: G.W.
+7) Center "Game Over" message -- DONE: A.A.
+
+8) Add power up item
+
+
 2.1) Clean up code and make any additional improvements.
-3) Make snake leave a "trail" of some sorts --DONE: G.W.
-4) Add score mechanic? 
 
 
 
 # Cycle
-Write Description
+Two Cycles compete in the ulitmate game of skill. As they cycles move, they leave a an untouchable trail in their wake. If the opposing cycle touches this in any way, they lose. Play smart, make quick decisions, and force the other cycle to run into your trail!
 
 
 

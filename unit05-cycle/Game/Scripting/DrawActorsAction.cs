@@ -14,7 +14,7 @@ namespace unit05_cycle.Game.Scripting
         private VideoService _videoService;
 
         /// <summary>
-        /// Constructs a new instance of ControlActorsAction using the given KeyboardService.
+        /// Constructs a new instance of DrawActorsAction using the given KeyboardService.
         /// </summary>
         public DrawActorsAction(VideoService videoService)
         {
@@ -24,24 +24,16 @@ namespace unit05_cycle.Game.Scripting
         /// <inheritdoc/>
         public void Execute(Cast cast, Script script)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            List<Actor> segments = snake.GetSegments();
-            
-        
-
-            Snake snake2 = (Snake)cast.GetSecondActor("snake");
-            
-            List<Actor> segments2 = snake2.GetSegments();
-            
-            
-
-
-
-            Actor score = cast.GetFirstActor("score");
+            // Gets the 2 instances of cycle to enable access to their segments
+            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            List<Actor> segments = cycle.GetSegments();
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
+            List<Actor> segments2 = cycle2.GetSegments();
 
 
             List<Actor> messages = cast.GetActors("messages");
             
+            // Draws cycles on screen
             _videoService.ClearBuffer();
             _videoService.DrawActors(segments);
             _videoService.DrawActors(segments2);

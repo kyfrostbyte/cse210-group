@@ -17,29 +17,28 @@ namespace unit05_cycle
         /// <param name="args">The given arguments.</param>
         static void Main(string[] args)
         {
+            // Creates the cast
             Cast cast = new Cast();
-            
-            cast.AddActor("snake", new Snake(450, 195, Constants.RED));
-            cast.AddActor("snake", new Snake(450, 405, Constants.YELLOW));
 
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Snake snake2 = (Snake)cast.GetSecondActor("snake");
+            // Creates 2 instances of cycle
+            cast.AddActor("cycle", new Cycle(450, 195, Constants.RED));
+            cast.AddActor("cycle", new Cycle(450, 405, Constants.YELLOW));
 
-
+            // Creates a new intance of score
             cast.AddActor("score", new Score());
 
-            // create the services
+            // Creates the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);
            
-            // create the script
+            // Creates the script
             Script script = new Script();
             script.AddAction("input", new ControlActorsAction(keyboardService));
             script.AddAction("update", new MoveActorsAction());
             script.AddAction("update", new HandleCollisionsAction());
             script.AddAction("output", new DrawActorsAction(videoService));
 
-            // start the game
+            // Starts the game
             Director director = new Director(videoService);
             director.StartGame(cast, script);
         }

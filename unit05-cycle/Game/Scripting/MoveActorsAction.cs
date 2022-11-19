@@ -15,7 +15,7 @@ namespace unit05_cycle.Game.Scripting
     public class MoveActorsAction : Action
     {
 
-        int _counter = 1;
+        int _counter = 0;
 
         /// <summary>
         /// Constructs a new instance of MoveActorsAction.
@@ -33,16 +33,17 @@ namespace unit05_cycle.Game.Scripting
         {
             
             List<Actor> actors = cast.GetAllActors();
-            Snake snakeOne = (Snake)cast.GetFirstActor("snake");
-            Snake snakeTwo = (Snake)cast.GetSecondActor("snake");
+            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
+            
             foreach(Actor actor in actors)
             {
                 actor.MoveNext();
-                _counter += 1;
+                _counter += 2;
                 if(_counter % 50 == 0)
                 {
-                    snakeOne.GrowTail(1);
-                    snakeTwo.GrowTail(1);  
+                    cycle.GrowTail(1);
+                    cycle2.GrowTail(1);  
                 }
             }
         }

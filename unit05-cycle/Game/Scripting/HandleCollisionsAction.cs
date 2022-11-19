@@ -10,8 +10,8 @@ namespace unit05_cycle.Game.Scripting
     /// <summary>
     /// <para>An update action that handles interactions between the actors.</para>
     /// <para>
-    /// The responsibility of HandleCollisionsAction is to handle the situation when the snake 
-    /// collides with the food, or the snake collides with its segments, or the game is over.
+    /// The responsibility of HandleCollisionsAction is to handle the situation when the cycle 
+    /// collides with the food, or the cycle collides with its segments, or the game is over.
     /// </para>
     /// </summary>
     public class HandleCollisionsAction : Action
@@ -31,41 +31,25 @@ namespace unit05_cycle.Game.Scripting
         {
             if (_isGameOver == false)
             {
-                HandleSnakeCollisions(cast);
                 HandleSegmentCollisions(cast);
                 HandleGameOver(cast);
             }
         }
 
         /// <summary>
-        /// Updates the score nd moves the food if the snake collides with it.
-        /// </summary>
-        /// <param name="cast">The cast of actors.</param>
-        private void HandleSnakeCollisions(Cast cast)
-        {
-            Snake snake1 = (Snake)cast.GetFirstActor("snake");
-            Snake snake2 = (Snake)cast.GetSecondActor("snake");
-            Score score = (Score)cast.GetFirstActor("score");
-            
-            
-            // MUST ADD LOGIC FOR THIS
-
-        }
-
-        /// <summary>
-        /// Sets the game over flag if the snake collides with one of its segments.
+        /// Sets the game over flag if the cycle collides with one of its segments.
         /// </summary>
         /// <param name="cast">The cast of actors.</param>
         private void HandleSegmentCollisions(Cast cast)
         {
-            Snake snake = (Snake)cast.GetFirstActor("snake");
-            Snake snake2 = (Snake)cast.GetSecondActor("snake");
+            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
 
-            Actor head = snake.GetHead();
-            Actor head2 = snake2.GetHead();
+            Actor head = cycle.GetHead();
+            Actor head2 = cycle2.GetHead();
 
-            List<Actor> body = snake.GetBody();
-            List<Actor> body2 = snake2.GetBody();
+            List<Actor> body = cycle.GetBody();
+            List<Actor> body2 = cycle2.GetBody();
 
             foreach (Actor segment in body)
             {
@@ -93,17 +77,18 @@ namespace unit05_cycle.Game.Scripting
             if (_isGameOver == true)
             {
                 // create a "game over" message
-                int x = Constants.MAX_X / 2;
+                int x = Constants.MAX_X / 4;
                 int y = Constants.MAX_Y / 2;
                 Point position = new Point(x, y);
 
                 // make everything white
                 if(PlayerOneWins == true)
                 {
-                    Snake snake = (Snake)cast.GetSecondActor("snake");
-                    List<Actor> segments = snake.GetSegments();
+                    Cycle cycle = (Cycle)cast.GetSecondActor("cycle");
+                    List<Actor> segments = cycle.GetSegments();
 
                     Actor message = new Actor();
+                    message.SetFontSize(30);
                     message.SetText("Game Over! Player One Wins!");
                     message.SetPosition(position);
                     cast.AddActor("messages", message);
@@ -114,10 +99,11 @@ namespace unit05_cycle.Game.Scripting
                 }
                 else if(PlayerOneWins == false)
                 {
-                    Snake snake = (Snake)cast.GetFirstActor("snake");
-                    List<Actor> segments = snake.GetSegments();
+                    Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+                    List<Actor> segments = cycle.GetSegments();
 
                     Actor message = new Actor();
+                    message.SetFontSize(30);
                     message.SetText("Game Over! Player Two Wins!");
                     message.SetPosition(position);
                     cast.AddActor("messages", message);
