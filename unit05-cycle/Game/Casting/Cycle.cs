@@ -47,6 +47,45 @@ namespace unit05_cycle.Game.Casting
             return _segments;
         }
 
+        public void ResetTail()
+        {
+            int length = _segments.Count();
+            Actor head = _segments[0];
+            _segments.Clear();
+            _segments.Add(head);
+            for (int i = 0; i < 8; i++)
+            {
+                Actor tail = _segments.Last<Actor>();
+                Point velocity = tail.GetVelocity();
+                Point offset = velocity.Reverse();
+                Point position = tail.GetPosition().Add(offset);
+                Actor segment = new Actor();
+                segment.SetPosition(position);
+                segment.SetVelocity(velocity);
+                segment.SetText("#");
+                segment.SetColor(tail.GetColor());
+                _segments.Add(segment);
+            }
+        }
+
+        // public void ResetTail()
+        // {
+        //     for (int i = 0; i < 8; i++)
+        //     {
+        //         Actor tail = _segments.Last<Actor>();
+        //         Point velocity = tail.GetVelocity();
+        //         Point offset = velocity.Reverse();
+        //         Point position = tail.GetPosition().Add(offset);
+
+        //         Actor segment = new Actor();
+        //         segment.SetPosition(position);
+        //         segment.SetVelocity(velocity);
+        //         segment.SetText("#");
+        //         segment.SetColor(tail.GetColor());
+        //         _segments.Add(segment);
+        //     }
+        // }
+
         /// <summary>
         /// Grows the cycle's tail by the given number of segments.
         /// </summary>

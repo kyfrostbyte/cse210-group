@@ -27,6 +27,9 @@ namespace unit05_cycle
             // Creates a new intance of score
             cast.AddActor("score", new Score());
 
+            // Creates a new intance of power
+            cast.AddActor("power", new Power());
+
             // Creates the services
             KeyboardService keyboardService = new KeyboardService();
             VideoService videoService = new VideoService(false);

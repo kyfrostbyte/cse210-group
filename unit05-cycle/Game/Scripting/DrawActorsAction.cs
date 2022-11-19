@@ -30,6 +30,9 @@ namespace unit05_cycle.Game.Scripting
             Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
             List<Actor> segments2 = cycle2.GetSegments();
 
+            Actor food = cast.GetFirstActor("food");
+            Actor power = cast.GetFirstActor("power");
+
 
             List<Actor> messages = cast.GetActors("messages");
             
@@ -37,6 +40,7 @@ namespace unit05_cycle.Game.Scripting
             _videoService.ClearBuffer();
             _videoService.DrawActors(segments);
             _videoService.DrawActors(segments2);
+            _videoService.DrawActor(power);
             _videoService.DrawActors(messages);
             _videoService.FlushBuffer();
         }

@@ -32,7 +32,28 @@ namespace unit05_cycle.Game.Scripting
             if (_isGameOver == false)
             {
                 HandleSegmentCollisions(cast);
+                HandlePowerCollisions(cast);
                 HandleGameOver(cast);
+            }
+        }
+
+        private void HandlePowerCollisions(Cast cast)
+        {
+            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
+
+            Power power = (Power)cast.GetFirstActor("power");
+            
+            if (cycle.GetHead().GetPosition().Equals(power.GetPosition()))
+            {
+                cycle2.ResetTail();
+                power.Reset();
+            }
+
+            if (cycle2.GetHead().GetPosition().Equals(power.GetPosition()))
+            {
+                cycle.ResetTail();
+                power.Reset();
             }
         }
 
