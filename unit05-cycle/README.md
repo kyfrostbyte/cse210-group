@@ -31,7 +31,7 @@ root                          (project root folder)
 
 ## Author
 * Aaron Alexander (ale20011@byui.edu)
-* Grant Watson (???)
+* Grant Watson (wat21017@byui.edu)
 * Bri (bal20020@byui.edu)
 
 TO DO:
