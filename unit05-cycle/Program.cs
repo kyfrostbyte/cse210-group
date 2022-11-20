@@ -27,8 +27,10 @@ namespace unit05_cycle
             // Creates a new intance of score
             cast.AddActor("score", new Score());
 
-            // Creates a new intance of power
+            // Creates Green Power Up which causes the other cycle's trail to reset
             cast.AddActor("power", new Power("@", Constants.GREEN));
+
+            // Creates White Power Up which the trail to grow 8 segments
             cast.AddActor("power", new Power("#", Constants.WHITE));
 
             // Creates the services
