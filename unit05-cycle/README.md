@@ -32,7 +32,7 @@ root                          (project root folder)
 ## Author
 * Aaron Alexander (ale20011@byui.edu)
 * Grant Watson (???)
-* Bri (???)
+* Bri (bal20020@byui.edu)
 
 TO DO:
 1) Spawn 2 cycles --DONE: A.A.
