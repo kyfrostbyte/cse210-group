@@ -28,7 +28,8 @@ namespace unit05_cycle
             cast.AddActor("score", new Score());
 
             // Creates a new intance of power
-            cast.AddActor("power", new Power());
+            cast.AddActor("power", new Power("@", Constants.GREEN));
+            cast.AddActor("power", new Power("#", Constants.WHITE));
 
             // Creates the services
             KeyboardService keyboardService = new KeyboardService();

@@ -32,27 +32,47 @@ namespace unit05_cycle.Game.Scripting
             if (_isGameOver == false)
             {
                 HandleSegmentCollisions(cast);
-                HandlePowerCollisions(cast);
+                HandleGreenPowerCollisions(cast);
+                HandleWhitePowerCollisions(cast);
                 HandleGameOver(cast);
             }
         }
-
-        private void HandlePowerCollisions(Cast cast)
+        // If a cycle touches the green power up, it causes the other cycles trail to reset
+        private void HandleGreenPowerCollisions(Cast cast)
         {
             Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
             Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
-
             Power power = (Power)cast.GetFirstActor("power");
             
             if (cycle.GetHead().GetPosition().Equals(power.GetPosition()))
             {
-                cycle2.ResetTail();
+                cycle2.ResetTailPower();
                 power.Reset();
             }
 
             if (cycle2.GetHead().GetPosition().Equals(power.GetPosition()))
             {
-                cycle.ResetTail();
+                cycle.ResetTailPower();
+                power.Reset();
+            }
+        }
+
+        // If a cycle touches the white power up, it causes its trail to get 8 new segments instantly
+        private void HandleWhitePowerCollisions(Cast cast)
+        {
+            Cycle cycle = (Cycle)cast.GetFirstActor("cycle");
+            Cycle cycle2 = (Cycle)cast.GetSecondActor("cycle");
+            Power power = (Power)cast.GetSecondActor("power");
+            
+            if (cycle.GetHead().GetPosition().Equals(power.GetPosition()))
+            {
+                cycle.GrowTailPower();
+                power.Reset();
+            }
+
+            if (cycle2.GetHead().GetPosition().Equals(power.GetPosition()))
+            {
+                cycle2.GrowTailPower();
                 power.Reset();
             }
         }

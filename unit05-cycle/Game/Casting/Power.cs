@@ -16,10 +16,10 @@ namespace unit05_cycle.Game.Casting
         /// <summary>
         /// Constructs a new instance of an Food.
         /// </summary>
-        public Power()
+        public Power(string text, Color color)
         {
-            SetText("@");
-            SetColor(Constants.GREEN); 
+            SetText(text);
+            SetColor(color); 
             Reset();
         }
 
