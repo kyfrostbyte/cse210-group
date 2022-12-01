@@ -30,9 +30,11 @@ namespace Unit06.Game.Services
         /// </inheritdoc>
         public void ClearBuffer()
         {
-            // Raylib_cs.Color background = ToRaylibColor(_color);
+            Raylib_cs.Texture2D loaded = Raylib.LoadTexture("Assets/Images/test.png");
             Raylib.BeginDrawing();
-            // Raylib.ClearBackground(background);
+            Raylib.ClearBackground(Color.BROWN);
+            Raylib.DrawTexture(loaded, 0, 0, Color.WHITE);
+            
         }
 
         /// </inheritdoc>
@@ -50,6 +52,8 @@ namespace Unit06.Game.Services
             Raylib.DrawTexture(texture, x, y, Raylib_cs.Color.WHITE);
         }
 
+        
+
         /// </inheritdoc>
         public void DrawRectangle(Casting.Point size, Casting.Point position, Casting.Color color,
             bool filled = false)
@@ -58,16 +62,16 @@ namespace Unit06.Game.Services
             int y = position.GetY();
             int width = size.GetX();
             int height = size.GetY();
-            // Raylib_cs.Color raylibColor = ToRaylibColor(color);
+            Raylib_cs.Color raylibColor = ToRaylibColor(color);
 
-            // if (filled)
-            // {
-            //     Raylib.DrawRectangle(x, y, width, height, raylibColor);
-            // }
-            // else
-            // {
-            //     Raylib.DrawRectangleLines(x, y, width, height, raylibColor);
-            // }
+            if (filled)
+            {
+                Raylib.DrawRectangle(x, y, width, height, raylibColor);
+            }
+            else
+            {
+                Raylib.DrawRectangleLines(x, y, width, height, raylibColor);
+            }
         }
 
         /// </inheritdoc>
