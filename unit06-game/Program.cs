@@ -1,7 +1,7 @@
 ﻿using System;
 using Raylib_cs;
 
-namespace HelloWorld
+namespace unit06_game
 {
   class Program
   {
