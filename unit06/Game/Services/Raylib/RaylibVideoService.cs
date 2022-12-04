@@ -31,10 +31,10 @@ namespace Unit06.Game.Services
         /// </inheritdoc>
         public void ClearBuffer()
         {
-            Raylib_cs.Texture2D loaded = Raylib.LoadTexture("Assets/Images/test.png");
+
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.BROWN);
-            Raylib.DrawTexture(loaded, 0, 0, Color.WHITE);
+
         }
 
         /// </inheritdoc>

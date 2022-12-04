@@ -109,7 +109,7 @@ namespace Unit06
         
         public static List<string> RACKET_IMAGES
             = new List<string>() {
-                "Assets/Images/100.png",
+                "Assets/Images/goodgoblin.png",
             };
 
         public static int RACKET_WIDTH = 50;
@@ -118,8 +118,7 @@ namespace Unit06
         public static int RACKET_VELOCITY = 7;
 
         // ENEMY
-        public static string ENEMY_GROUP = "rackets";
-        
+        public static string ENEMY_GROUP = "enemy";
         public static List<string> ENEMY_IMAGES
             = new List<string>() {
                 "Assets/Images/goblingood.png",

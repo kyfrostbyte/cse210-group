@@ -15,13 +15,13 @@
             "stopAtEntry": false
         },
         {
-            "name": "unit06-game",
+            "name": "unit06",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build-unit06-game",
-            "program": "${workspaceFolder}/unit06-game/bin/Debug/net6.0/unit06-game.dll",
+            "preLaunchTask": "build-unit06",
+            "program": "${workspaceFolder}/unit06/bin/Debug/net6.0/unit06.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/unit06-game",
+            "cwd": "${workspaceFolder}/unit06",
             "console": "integratedTerminal",
             "internalConsoleOptions": "neverOpen",
             "stopAtEntry": false

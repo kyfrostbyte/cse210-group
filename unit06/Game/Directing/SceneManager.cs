@@ -47,7 +47,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareNewGame(Cast cast, Script script)
         {
-            AddEnemy(cast);
+
             AddStats(cast);
             AddLevel(cast);
             AddScore(cast);
@@ -72,7 +72,7 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddRacket(cast);
-            AddEnemy(cast);
+
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -89,7 +89,7 @@ namespace Unit06.Game.Directing
         private void PrepareTryAgain(Cast cast, Script script)
         {
             AddRacket(cast);
-            AddEnemy(cast);
+
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -118,7 +118,7 @@ namespace Unit06.Game.Directing
         private void PrepareGameOver(Cast cast, Script script)
         {
             AddRacket(cast);
-            AddEnemy(cast);
+
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -261,7 +261,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
+            // script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
