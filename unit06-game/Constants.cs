@@ -112,10 +112,23 @@ namespace Unit06
                 "Assets/Images/100.png",
             };
 
-        public static int RACKET_WIDTH = 106;
-        public static int RACKET_HEIGHT = 28;
+        public static int RACKET_WIDTH = 50;
+        public static int RACKET_HEIGHT = 44;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
+
+        // ENEMY
+        public static string ENEMY_GROUP = "rackets";
+        
+        public static List<string> ENEMY_IMAGES
+            = new List<string>() {
+                "Assets/Images/goblingood.png",
+            };
+
+        public static int ENEMY_WIDTH = 50;
+        public static int ENEMY_HEIGHT = 44;
+        public static int ENEMY_RATE = 6;
+        public static int ENEMY_VELOCITY = 7;
 
         // BRICK
         public static string BRICK_GROUP = "bricks";

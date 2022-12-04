@@ -47,6 +47,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareNewGame(Cast cast, Script script)
         {
+            AddEnemy(cast);
             AddStats(cast);
             AddLevel(cast);
             AddScore(cast);
@@ -71,6 +72,7 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddRacket(cast);
+            AddEnemy(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -87,6 +89,7 @@ namespace Unit06.Game.Directing
         private void PrepareTryAgain(Cast cast, Script script)
         {
             AddRacket(cast);
+            AddEnemy(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -115,6 +118,7 @@ namespace Unit06.Game.Directing
         private void PrepareGameOver(Cast cast, Script script)
         {
             AddRacket(cast);
+            AddEnemy(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -185,6 +189,24 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.RACKET_GROUP, racket);
         }
 
+        private void AddEnemy(Cast cast)
+        {
+            cast.ClearActors(Constants.ENEMY_GROUP);
+
+            int x = Constants.CENTER_X / 2;
+            int y = Constants.CENTER_Y / 2;
+
+            Point position = new Point(x, y);
+            Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
+            Point velocity = new Point(0, 0);
+        
+            Body body = new Body(position, size, velocity);
+            Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
+            Enemy enemy = new Enemy(body, animation, false);
+            Console.WriteLine("CODE IS RUNING-------------------------------------------------------------------------------");
+            cast.AddActor(Constants.RACKET_GROUP, enemy);
+        }
+
         private void AddScore(Cast cast)
         {
             cast.ClearActors(Constants.SCORE_GROUP);
@@ -239,6 +261,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }

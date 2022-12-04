@@ -35,50 +35,6 @@ namespace Unit06.Game.Casting
             return _body;
         }
 
-        /// <summary>
-        /// Moves the racket to its next position.
-        /// </summary>
-
-
-        /// <summary>
-        /// Swings the racket to the left.
-        /// </summary>
-        public void SwingLeft()
-        {
-            Point velocity = new Point(-Constants.RACKET_VELOCITY, 0);
-            _body.SetVelocity(velocity);
-        }
-
-        /// <summary>
-        /// Swings the racket to the right.
-        /// </summary>
-        public void SwingRight()
-        {
-            Point velocity = new Point(Constants.RACKET_VELOCITY, 0);
-            _body.SetVelocity(velocity);
-        }
-
-        public void SwingUp()
-        {
-            Point velocity = new Point(0, -Constants.RACKET_VELOCITY);
-            _body.SetVelocity(velocity);
-        }
-
-        public void SwingDown()
-        {
-            Point velocity = new Point(0, Constants.RACKET_VELOCITY);
-            _body.SetVelocity(velocity);
-        }
-
-
-        /// <summary>
-        /// Stops the racket from moving.
-        /// </summary>
-        public void StopMoving()
-        {
-            Point velocity = new Point(0, 0);
-            _body.SetVelocity(velocity);
-        }
         
     }
 }
