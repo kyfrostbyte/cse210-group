@@ -3,7 +3,13 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
+<<<<<<< HEAD
     <RootNamespace>Unit06</RootNamespace>
+=======
+    <RootNamespace>unit06_game</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+>>>>>>> a7f46bd7c08267fa8d3518ea1804eebc3b2714dc
   </PropertyGroup>
 
   <ItemGroup>
