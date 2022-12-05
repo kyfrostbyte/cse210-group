@@ -203,7 +203,6 @@ namespace Unit06.Game.Directing
             Body body = new Body(position, size, velocity);
             Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
             Enemy enemy = new Enemy(body, animation, false);
-            Console.WriteLine("CODE IS RUNING-------------------------------------------------------------------------------");
             cast.AddActor(Constants.ENEMY_GROUP, enemy);
         }
 
