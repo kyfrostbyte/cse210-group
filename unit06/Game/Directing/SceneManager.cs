@@ -52,8 +52,8 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-
             AddRacket(cast);
+            AddEnemy(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -72,7 +72,7 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddRacket(cast);
-
+            AddEnemy(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -89,7 +89,7 @@ namespace Unit06.Game.Directing
         private void PrepareTryAgain(Cast cast, Script script)
         {
             AddRacket(cast);
-
+            AddEnemy(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -118,7 +118,7 @@ namespace Unit06.Game.Directing
         private void PrepareGameOver(Cast cast, Script script)
         {
             AddRacket(cast);
-
+            AddEnemy(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
             script.ClearAllActions();
@@ -203,8 +203,7 @@ namespace Unit06.Game.Directing
             Body body = new Body(position, size, velocity);
             Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
             Enemy enemy = new Enemy(body, animation, false);
-            Console.WriteLine("CODE IS RUNING-------------------------------------------------------------------------------");
-            cast.AddActor(Constants.RACKET_GROUP, enemy);
+            cast.AddActor(Constants.ENEMY_GROUP, enemy);
         }
 
         private void AddScore(Cast cast)
@@ -261,7 +260,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
-            // script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -280,6 +279,7 @@ namespace Unit06.Game.Directing
         private void AddUpdateActions(Script script)
         {
             script.AddAction(Constants.UPDATE, new MoveRacketAction());
+            script.AddAction(Constants.UPDATE, new MoveEnemyAction());
             // script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
