@@ -118,7 +118,7 @@ namespace Unit06
         public static int RACKET_VELOCITY = 7;
 
         // ENEMY
-        public static string ENEMY_GROUP = "enemy";
+        public static string ENEMY_GROUP = "enemys";
         public static List<string> ENEMY_IMAGES
             = new List<string>() {
                 "Assets/Images/goblingood.png",
