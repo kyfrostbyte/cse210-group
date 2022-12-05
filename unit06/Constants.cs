@@ -104,6 +104,10 @@ namespace Unit06
         public static int BALL_HEIGHT = 28;
         public static int BALL_VELOCITY = 6;
 
+        // Projectiles
+        public static string PROJECTILE_GROUP = "projectiles";
+        public static string PROJECTILE_IMAGE = "Assets/Images/Arcane_Effect_1.png";
+
         // RACKET
         public static string RACKET_GROUP = "rackets";
         
