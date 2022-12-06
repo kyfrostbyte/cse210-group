@@ -28,20 +28,20 @@ namespace Unit06.Game.Scripting
 
             if (playerX > x)
             {
-                position = new Point(x + 7, position.GetY());
+                position = new Point(x + Constants.ENEMY_VELOCITY, position.GetY());
             }
             else if (playerX < x)
             {
-                position = new Point(x - 7, position.GetY());
+                position = new Point(x - Constants.ENEMY_VELOCITY, position.GetY());
             }
 
             if (playerY > y)
             {
-                position = new Point(position.GetX(), y + 7);
+                position = new Point(position.GetX(), y + Constants.ENEMY_VELOCITY);
             }
             else if (playerY < y)
             {
-                position = new Point(position.GetX(), y = 7);
+                position = new Point(position.GetX(), y = Constants.ENEMY_VELOCITY);
             }
 
 

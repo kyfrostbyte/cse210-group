@@ -8,6 +8,7 @@ namespace Unit06.Game.Casting
         private Body _body;
         private Animation _animation;
         private int _health;
+        private int _image;
         
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -38,7 +39,7 @@ namespace Unit06.Game.Casting
         }
 
         /// <summary>
-        /// Moves the racket to its next position.
+        /// Moves the player to its next position.
         /// </summary>
         public void MoveNext()
         {
@@ -49,7 +50,7 @@ namespace Unit06.Game.Casting
         }
 
         /// <summary>
-        /// Swings the racket to the left.
+        /// Swings the player to the left.
         /// </summary>
         public void SwingLeft()
         {
@@ -58,7 +59,7 @@ namespace Unit06.Game.Casting
         }
 
         /// <summary>
-        /// Swings the racket to the right.
+        /// Swings the player to the right.
         /// </summary>
         public void SwingRight()
         {
@@ -88,9 +89,17 @@ namespace Unit06.Game.Casting
             _health = _health - ENEMY_DAMAGE;
         }
 
+        public void ShootProjectile()
+        {
+            Point position = _body.GetPosition();
+            Point velocity = _body.GetVelocity();
+            // Projectile projectile = new Projectile(_body, _image, false);
+
+        }
+
 
         /// <summary>
-        /// Stops the racket from moving.
+        /// Stops the player from moving.
         /// </summary>
         public void StopMoving()
         {

@@ -132,7 +132,7 @@ namespace Unit06
         public static int ENEMY_WIDTH = 50;
         public static int ENEMY_HEIGHT = 44;
         public static int ENEMY_RATE = 6;
-        public static int ENEMY_VELOCITY = 7;
+        public static int ENEMY_VELOCITY = 1;
         public static int ENEMY_DAMAGE = 1;
 
         // BRICK
