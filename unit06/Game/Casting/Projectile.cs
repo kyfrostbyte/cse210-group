@@ -19,7 +19,7 @@ namespace Unit06.Game.Casting
         public Projectile(Body body, Image image, bool debug = false) : base(debug)
         {
             this._body = body;
-
+            this._image = image;
         }
 
         
