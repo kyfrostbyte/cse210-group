@@ -79,6 +79,42 @@ namespace Unit06.Game.Casting
             _body.SetVelocity(velocity);
         }
 
+                /// <summary>
+        /// Swings the player up and to the left.
+        /// </summary>
+        public void SwingUpLeft()
+        {
+            Point velocity = new Point(-Constants.PLAYER_VELOCITY, -Constants.PLAYER_VELOCITY);
+            _body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// Swings the player up and to the right.
+        /// </summary>
+        public void SwingUpRight()
+        {
+            Point velocity = new Point(Constants.PLAYER_VELOCITY, -Constants.PLAYER_VELOCITY);
+            _body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// Swings the player down and to the left.
+        /// </summary>
+        public void SwingDownLeft()
+        {
+            Point velocity = new Point(-Constants.PLAYER_VELOCITY, Constants.PLAYER_VELOCITY);
+            _body.SetVelocity(velocity);
+        }
+
+        /// <summary>
+        /// Swings the player down and to the Right.
+        /// </summary>
+        public void SwingDownRight()
+        {
+            Point velocity = new Point(Constants.PLAYER_VELOCITY, Constants.PLAYER_VELOCITY);
+            _body.SetVelocity(velocity);
+        }
+
         public int GetHealth()
         {
             return _health;
