@@ -47,10 +47,10 @@ namespace Unit06
         public static Color PURPLE = new Color(255, 0, 255);
 
         // KEYS
-        public static string LEFT = "left";
-        public static string RIGHT = "right";
-        public static string UP = "up";
-        public static string DOWN = "down";
+        public static string LEFT = "a";
+        public static string RIGHT = "d";
+        public static string UP = "w";
+        public static string DOWN = "s";
         public static string SPACE = "space";
         public static string ENTER = "enter";
         public static string PAUSE = "p";
@@ -120,7 +120,7 @@ namespace Unit06
         public static int PLAYER_HEIGHT = 44;
         public static int PLAYER_RATE = 6;
         public static int PLAYER_VELOCITY = 7;
-        public static int PLAYER_HEALTH = 100;
+        public static int PLAYER_HEALTH = 1000;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemys";
