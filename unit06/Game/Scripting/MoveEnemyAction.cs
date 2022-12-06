@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
 
@@ -19,31 +20,36 @@ namespace Unit06.Game.Scripting
             int playerX = playerPosition.GetX();
             int playerY = playerPosition.GetY();
 
-            Enemy enemy = (Enemy)cast.GetFirstActor(Constants.ENEMY_GROUP);
-            Body body = enemy.GetBody();
-            Point position = body.GetPosition();
-            Point velocity = body.GetVelocity();
-            int x = position.GetX();
-            int y = position.GetY();
 
-            if (playerX > x)
+            List<Actor> enemys = cast.GetActors(Constants.ENEMY_GROUP);
+            foreach (Actor actor in enemys)
             {
-                position = new Point(x + Constants.ENEMY_VELOCITY, position.GetY());
-            }
-            else if (playerX < x)
-            {
-                position = new Point(x - Constants.ENEMY_VELOCITY, position.GetY());
-            }
 
-            if (playerY > y)
-            {
-                position = new Point(position.GetX(), y + Constants.ENEMY_VELOCITY);
-            }
-            else if (playerY < y)
-            {
-                position = new Point(position.GetX(), y - Constants.ENEMY_VELOCITY);
-            }
+                Enemy enemy = (Enemy)actor;
+                Body body = enemy.GetBody();
+                Point position = body.GetPosition();
+                Point velocity = body.GetVelocity();
+                int x = position.GetX();
+                int y = position.GetY();
 
+                if (playerX > x)
+                {
+                    position = new Point(x + Constants.ENEMY_VELOCITY, position.GetY());
+                }
+                else if (playerX < x)
+                {
+                    position = new Point(x - Constants.ENEMY_VELOCITY, position.GetY());
+                }
+
+
+                if (playerY > y)
+                {
+                    position = new Point(position.GetX(), y + Constants.ENEMY_VELOCITY);
+                }
+                else if (playerY < y)
+                {
+                    position = new Point(position.GetX(), y - Constants.ENEMY_VELOCITY);
+                }
 
             // if (x < 0)
             // {
@@ -55,7 +61,8 @@ namespace Unit06.Game.Scripting
             //         position.GetY());
             // }
 
-            body.SetPosition(position);       
+                body.SetPosition(position);       
+            }
         }
     }
 }

@@ -193,18 +193,22 @@ namespace Unit06.Game.Directing
         private void AddEnemy(Cast cast)
         {
             cast.ClearActors(Constants.ENEMY_GROUP);
+            Random random = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                int x = Constants.CENTER_X / random.Next(1, 5);
+                int y = Constants.CENTER_Y / random.Next(1, 5);
 
-            int x = Constants.CENTER_X / 2;
-            int y = Constants.CENTER_Y / 2;
+                Point position = new Point(x, y);
+                Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
+                Point velocity = new Point(0, 0);
 
-            Point position = new Point(x, y);
-            Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
-            Point velocity = new Point(0, 0);
+                Body body = new Body(position, size, velocity);
+                Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
+                Enemy enemy = new Enemy(body, animation, false);
+                cast.AddActor(Constants.ENEMY_GROUP, enemy);
 
-            Body body = new Body(position, size, velocity);
-            Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
-            Enemy enemy = new Enemy(body, animation, false);
-            cast.AddActor(Constants.ENEMY_GROUP, enemy);
+            }
         }
 
         private void AddScore(Cast cast)
