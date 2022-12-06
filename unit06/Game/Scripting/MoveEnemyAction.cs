@@ -41,7 +41,7 @@ namespace Unit06.Game.Scripting
             }
             else if (playerY < y)
             {
-                position = new Point(position.GetX(), y = Constants.ENEMY_VELOCITY);
+                position = new Point(position.GetX(), y - Constants.ENEMY_VELOCITY);
             }
 
 
