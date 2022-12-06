@@ -1,9 +1,11 @@
 using Unit06.Game.Casting;
+using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
     public class MoveEnemyAction : Action
     {
+
         public MoveEnemyAction()
         {
         }
@@ -41,6 +43,7 @@ namespace Unit06.Game.Scripting
             {
                 position = new Point(position.GetX(), y = 7);
             }
+
 
             // if (x < 0)
             // {

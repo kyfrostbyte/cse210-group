@@ -120,6 +120,7 @@ namespace Unit06
         public static int RACKET_HEIGHT = 44;
         public static int RACKET_RATE = 6;
         public static int RACKET_VELOCITY = 7;
+        public static int PLAYER_HEALTH = 100;
 
         // ENEMY
         public static string ENEMY_GROUP = "enemys";
@@ -127,6 +128,8 @@ namespace Unit06
             = new List<string>() {
                 "Assets/Images/goblingood.png",
             };
+
+
 
         public static int ENEMY_WIDTH = 50;
         public static int ENEMY_HEIGHT = 44;

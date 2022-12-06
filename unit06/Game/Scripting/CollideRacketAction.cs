@@ -17,16 +17,19 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Ball ball = (Ball)cast.GetFirstActor(Constants.BALL_GROUP);
-            Racket racket = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
-            Body ballBody = ball.GetBody();
-            Body racketBody = racket.GetBody();
+            Enemy enemy = (Enemy)cast.GetFirstActor(Constants.ENEMY_GROUP);
 
-            if (_physicsService.HasCollided(racketBody, ballBody))
+            Racket player = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
+            Body enemyBody = enemy.GetBody();
+            Body racketBody = player.GetBody();
+            int health = player.GetHealth();
+
+            if (_physicsService.HasCollided(racketBody, enemyBody))
             {
-                ball.BounceY();
                 Sound sound = new Sound(Constants.BOUNCE_SOUND);
                 _audioService.PlaySound(sound);
+                player.HitPlayer();
+
             }
         }
     }

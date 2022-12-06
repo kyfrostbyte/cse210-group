@@ -184,8 +184,9 @@ namespace Unit06.Game.Directing
         
             Body body = new Body(position, size, velocity);
             Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
-            Racket racket = new Racket(body, animation, false);
-        
+
+            Racket racket = new Racket(body, animation, false, Constants.PLAYER_HEALTH);
+
             cast.AddActor(Constants.RACKET_GROUP, racket);
         }
 
@@ -282,7 +283,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
             // script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            // script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }
