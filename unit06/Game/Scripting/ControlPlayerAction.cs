@@ -18,19 +18,64 @@ namespace Unit06.Game.Scripting
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             if (_keyboardService.IsKeyDown(Constants.LEFT))
             {
-                player.SwingLeft();
+                if ((_keyboardService.IsKeyDown(Constants.LEFT)) && (_keyboardService.IsKeyDown(Constants.UP)))
+                {
+                    player.SwingUpLeft();
+                }
+                else if ((_keyboardService.IsKeyDown(Constants.LEFT)) && (_keyboardService.IsKeyDown(Constants.DOWN)))
+                {
+                    player.SwingDownLeft();
+                }
+                else
+                {
+                    player.SwingLeft();
+                }
             }
             else if (_keyboardService.IsKeyDown(Constants.RIGHT))
             {
-                player.SwingRight();
+                if ((_keyboardService.IsKeyDown(Constants.RIGHT)) && (_keyboardService.IsKeyDown(Constants.UP)))
+                {
+                    player.SwingUpRight();
+                }
+                else if ((_keyboardService.IsKeyDown(Constants.RIGHT)) && (_keyboardService.IsKeyDown(Constants.DOWN)))
+                {
+                    player.SwingDownRight();
+                }
+                else
+                {
+                    player.SwingRight();
+                }
             }
             else if (_keyboardService.IsKeyDown(Constants.UP))
             {
-                player.SwingUp();
+                if ((_keyboardService.IsKeyDown(Constants.RIGHT)) && (_keyboardService.IsKeyDown(Constants.UP)))
+                {
+                    player.SwingUpRight();
+                }
+                else if ((_keyboardService.IsKeyDown(Constants.LEFT)) && (_keyboardService.IsKeyDown(Constants.UP)))
+                {
+                    player.SwingUpLeft();
+                }
+                else
+                {
+                    player.SwingUp();
+                }
+
             }
             else if (_keyboardService.IsKeyDown(Constants.DOWN))
             {
-                player.SwingDown();
+                if ((_keyboardService.IsKeyDown(Constants.RIGHT)) && (_keyboardService.IsKeyDown(Constants.DOWN)))
+                {
+                    player.SwingDownRight();
+                }
+                else if ((_keyboardService.IsKeyDown(Constants.LEFT)) && (_keyboardService.IsKeyDown(Constants.DOWN)))
+                {
+                    player.SwingDownLeft();
+                }
+                else
+                {
+                    player.SwingDown();
+                }
             }
             else
             {
