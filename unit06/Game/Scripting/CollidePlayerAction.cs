@@ -27,6 +27,7 @@ namespace Unit06.Game.Scripting
                 Sound sound = new Sound(Constants.BOUNCE_SOUND);
                 _audioService.PlaySound(sound);
                 player.HitPlayer(Constants.ENEMY_DAMAGE);
+                
             }
         }
     }
