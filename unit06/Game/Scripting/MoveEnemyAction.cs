@@ -12,8 +12,8 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Racket racket = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
-            Body playerBody = racket.GetBody();
+            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
+            Body playerBody = player.GetBody();
             Point playerPosition = playerBody.GetPosition();
             Point playerVelocity = playerBody.GetVelocity();
             int playerX = playerPosition.GetX();

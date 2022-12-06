@@ -4,37 +4,37 @@ using Unit06.Game.Services;
 
 namespace Unit06.Game.Scripting
 {
-    public class ControlRacketAction : Action
+    public class ControlPlayerAction : Action
     {
         private KeyboardService _keyboardService;
 
-        public ControlRacketAction(KeyboardService keyboardService)
+        public ControlPlayerAction(KeyboardService keyboardService)
         {
             this._keyboardService = keyboardService;
         }
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Racket racket = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
+            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             if (_keyboardService.IsKeyDown(Constants.LEFT))
             {
-                racket.SwingLeft();
+                player.SwingLeft();
             }
             else if (_keyboardService.IsKeyDown(Constants.RIGHT))
             {
-                racket.SwingRight();
+                player.SwingRight();
             }
             else if (_keyboardService.IsKeyDown(Constants.UP))
             {
-                racket.SwingUp();
+                player.SwingUp();
             }
             else if (_keyboardService.IsKeyDown(Constants.DOWN))
             {
-                racket.SwingDown();
+                player.SwingDown();
             }
             else
             {
-                racket.StopMoving();
+                player.StopMoving();
             }
         }
     }

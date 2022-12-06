@@ -52,7 +52,7 @@ namespace Unit06.Game.Directing
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
-            AddRacket(cast);
+            AddPlayer(cast);
             AddEnemy(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
@@ -71,7 +71,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareNextLevel(Cast cast, Script script)
         {
-            AddRacket(cast);
+            AddPlayer(cast);
             AddEnemy(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
@@ -88,15 +88,15 @@ namespace Unit06.Game.Directing
 
         private void PrepareTryAgain(Cast cast, Script script)
         {
-            AddRacket(cast);
+            AddPlayer(cast);
             AddEnemy(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
-            
+
             TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.IN_PLAY, 2, DateTime.Now);
             script.AddAction(Constants.INPUT, ta);
-            
+
             AddUpdateActions(script);
             AddOutputActions(script);
         }
@@ -107,17 +107,17 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
-            ControlRacketAction action = new ControlRacketAction(KeyboardService);
+            ControlPlayerAction action = new ControlPlayerAction(KeyboardService);
             script.AddAction(Constants.INPUT, action);
 
-            AddUpdateActions(script);    
+            AddUpdateActions(script);
             AddOutputActions(script);
-        
+
         }
 
         private void PrepareGameOver(Cast cast, Script script)
         {
-            AddRacket(cast);
+            AddPlayer(cast);
             AddEnemy(cast);
             AddDialog(cast, Constants.WAS_GOOD_GAME);
 
@@ -138,19 +138,19 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.DIALOG_GROUP);
 
-            Text text = new Text(message, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(message, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.CENTER_X, Constants.CENTER_Y);
 
             Label label = new Label(text, position);
-            cast.AddActor(Constants.DIALOG_GROUP, label);   
+            cast.AddActor(Constants.DIALOG_GROUP, label);
         }
 
         private void AddLevel(Cast cast)
         {
             cast.ClearActors(Constants.LEVEL_GROUP);
 
-            Text text = new Text(Constants.LEVEL_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.LEVEL_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_LEFT, Constants.WHITE);
             Point position = new Point(Constants.HUD_MARGIN, Constants.HUD_MARGIN);
 
@@ -162,32 +162,32 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.LIVES_GROUP);
 
-            Text text = new Text(Constants.LIVES_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.LIVES_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_RIGHT, Constants.WHITE);
-            Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN, 
+            Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN,
                 Constants.HUD_MARGIN);
 
             Label label = new Label(text, position);
-            cast.AddActor(Constants.LIVES_GROUP, label);   
+            cast.AddActor(Constants.LIVES_GROUP, label);
         }
 
-        private void AddRacket(Cast cast)
+        private void AddPlayer(Cast cast)
         {
-            cast.ClearActors(Constants.RACKET_GROUP);
-        
+            cast.ClearActors(Constants.PLAYER_GROUP);
+
             int x = Constants.CENTER_X;
             int y = Constants.CENTER_Y;
-        
+
             Point position = new Point(x, y);
-            Point size = new Point(Constants.RACKET_WIDTH, Constants.RACKET_HEIGHT);
+            Point size = new Point(Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
             Point velocity = new Point(0, 0);
-        
+
             Body body = new Body(position, size, velocity);
-            Animation animation = new Animation(Constants.RACKET_IMAGES, Constants.RACKET_RATE, 0);
+            Animation animation = new Animation(Constants.PLAYER_IMAGES, Constants.PLAYER_RATE, 0);
 
-            Racket racket = new Racket(body, animation, false, Constants.PLAYER_HEALTH);
+            Player player = new Player(body, animation, false, Constants.PLAYER_HEALTH);
 
-            cast.AddActor(Constants.RACKET_GROUP, racket);
+            cast.AddActor(Constants.PLAYER_GROUP, player);
         }
 
         private void AddEnemy(Cast cast)
@@ -200,7 +200,7 @@ namespace Unit06.Game.Directing
             Point position = new Point(x, y);
             Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
             Point velocity = new Point(0, 0);
-        
+
             Body body = new Body(position, size, velocity);
             Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
             Enemy enemy = new Enemy(body, animation, false);
@@ -211,12 +211,12 @@ namespace Unit06.Game.Directing
         {
             cast.ClearActors(Constants.SCORE_GROUP);
 
-            Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE, 
+            Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
-            
+
             Label label = new Label(text, position);
-            cast.AddActor(Constants.SCORE_GROUP, label);   
+            cast.AddActor(Constants.SCORE_GROUP, label);
         }
 
         private void AddStats(Cast cast)
@@ -229,7 +229,7 @@ namespace Unit06.Game.Directing
         private List<List<string>> LoadLevel(string filename)
         {
             List<List<string>> data = new List<List<string>>();
-            using(StreamReader reader = new StreamReader(filename))
+            using (StreamReader reader = new StreamReader(filename))
             {
                 while (!reader.EndOfStream)
                 {
@@ -247,7 +247,7 @@ namespace Unit06.Game.Directing
 
         private void AddInitActions(Script script)
         {
-            script.AddAction(Constants.INITIALIZE, new InitializeDevicesAction(AudioService, 
+            script.AddAction(Constants.INITIALIZE, new InitializeDevicesAction(AudioService,
                 VideoService));
         }
 
@@ -260,7 +260,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawRacketAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
@@ -273,17 +273,18 @@ namespace Unit06.Game.Directing
 
         private void AddReleaseActions(Script script)
         {
-            script.AddAction(Constants.RELEASE, new ReleaseDevicesAction(AudioService, 
+            script.AddAction(Constants.RELEASE, new ReleaseDevicesAction(AudioService,
                 VideoService));
         }
 
         private void AddUpdateActions(Script script)
         {
-            script.AddAction(Constants.UPDATE, new MoveRacketAction());
+            script.AddAction(Constants.UPDATE, new MovePlayerAction());
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
+            script.AddAction(Constants.UPDATE, new CollidePlayerAction(PhysicsService, AudioService));
+
             // script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new CollideRacketAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }

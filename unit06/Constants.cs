@@ -95,7 +95,7 @@ namespace Unit06
         public static string SCORE_GROUP = "score";
         public static string LEVEL_FORMAT = "LEVEL: {0}";
         public static string LIVES_FORMAT = "LIVES: {0}";
-        public static string SCORE_FORMAT = "SCORE: {0}";
+        public static string SCORE_FORMAT = "HEALTH: {0}";
 
         // BALL
         public static string BALL_GROUP = "balls";
@@ -109,17 +109,17 @@ namespace Unit06
         public static string PROJECTILE_IMAGE = "Assets/Images/Arcane_Effect_1.png";
 
         // RACKET
-        public static string RACKET_GROUP = "rackets";
+        public static string PLAYER_GROUP = "players";
         
-        public static List<string> RACKET_IMAGES
+        public static List<string> PLAYER_IMAGES
             = new List<string>() {
                 "Assets/Images/100.png",
             };
 
-        public static int RACKET_WIDTH = 50;
-        public static int RACKET_HEIGHT = 44;
-        public static int RACKET_RATE = 6;
-        public static int RACKET_VELOCITY = 7;
+        public static int PLAYER_WIDTH = 50;
+        public static int PLAYER_HEIGHT = 44;
+        public static int PLAYER_RATE = 6;
+        public static int PLAYER_VELOCITY = 7;
         public static int PLAYER_HEALTH = 100;
 
         // ENEMY
@@ -129,12 +129,11 @@ namespace Unit06
                 "Assets/Images/goblingood.png",
             };
 
-
-
         public static int ENEMY_WIDTH = 50;
         public static int ENEMY_HEIGHT = 44;
         public static int ENEMY_RATE = 6;
         public static int ENEMY_VELOCITY = 7;
+        public static int ENEMY_DAMAGE = 1;
 
         // BRICK
         public static string BRICK_GROUP = "bricks";

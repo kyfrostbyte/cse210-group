@@ -3,7 +3,7 @@ namespace Unit06.Game.Casting
     /// <summary>
     /// A thing that participates in the game.
     /// </summary>
-    public class Racket : Actor
+    public class Player : Actor
     {
         private Body _body;
         private Animation _animation;
@@ -12,7 +12,7 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Racket(Body body, Animation animation, bool debug, int health) : base(debug)
+        public Player(Body body, Animation animation, bool debug, int health) : base(debug)
         {
             this._body = body;
             this._animation = animation;
@@ -53,7 +53,7 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void SwingLeft()
         {
-            Point velocity = new Point(-Constants.RACKET_VELOCITY, 0);
+            Point velocity = new Point(-Constants.PLAYER_VELOCITY, 0);
             _body.SetVelocity(velocity);
         }
 
@@ -62,19 +62,19 @@ namespace Unit06.Game.Casting
         /// </summary>
         public void SwingRight()
         {
-            Point velocity = new Point(Constants.RACKET_VELOCITY, 0);
+            Point velocity = new Point(Constants.PLAYER_VELOCITY, 0);
             _body.SetVelocity(velocity);
         }
 
         public void SwingUp()
         {
-            Point velocity = new Point(0, -Constants.RACKET_VELOCITY);
+            Point velocity = new Point(0, -Constants.PLAYER_VELOCITY);
             _body.SetVelocity(velocity);
         }
 
         public void SwingDown()
         {
-            Point velocity = new Point(0, Constants.RACKET_VELOCITY);
+            Point velocity = new Point(0, Constants.PLAYER_VELOCITY);
             _body.SetVelocity(velocity);
         }
 
@@ -83,9 +83,9 @@ namespace Unit06.Game.Casting
             return _health;
         }
 
-        public void HitPlayer()
+        public void HitPlayer(int ENEMY_DAMAGE)
         {
-            _health = _health - 1;
+            _health = _health - ENEMY_DAMAGE;
         }
 
 

@@ -15,7 +15,7 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Racket player = (Racket)cast.GetFirstActor(Constants.RACKET_GROUP);
+            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
 
             DrawLabel(cast, Constants.LEVEL_GROUP, Constants.LEVEL_FORMAT, stats.GetLevel());
@@ -37,7 +37,7 @@ namespace Unit06.Game.Scripting
         private void DrawHealth(Cast cast, string group, string format, int data)
         {
             string theValueToDisplay = string.Format(format, data);
-            
+
             Label label = (Label)cast.GetFirstActor(group);
             Text text = label.GetText();
             text.SetValue(theValueToDisplay);
