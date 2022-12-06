@@ -196,8 +196,8 @@ namespace Unit06.Game.Directing
             Random random = new Random();
             for (int i = 0; i < 10; i++)
             {
-                int x = Constants.CENTER_X / random.Next(1, 5);
-                int y = Constants.CENTER_Y / random.Next(1, 5);
+                int x = Constants.CENTER_X / (i + 2);
+                int y = Constants.CENTER_Y / (i + 2);
 
                 Point position = new Point(x, y);
                 Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);
