@@ -7,14 +7,16 @@ namespace Unit06.Game.Casting
     {
         private Body _body;
         private Animation _animation;
+        private int _health;
         
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Racket(Body body, Animation animation, bool debug) : base(debug)
+        public Racket(Body body, Animation animation, bool debug, int health) : base(debug)
         {
             this._body = body;
             this._animation = animation;
+            this._health = health;
         }
 
         /// <summary>
@@ -74,6 +76,16 @@ namespace Unit06.Game.Casting
         {
             Point velocity = new Point(0, Constants.RACKET_VELOCITY);
             _body.SetVelocity(velocity);
+        }
+
+        public int GetHealth()
+        {
+            return _health;
+        }
+
+        public void HitPlayer()
+        {
+            _health = _health - 1;
         }
 
 
