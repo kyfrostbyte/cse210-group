@@ -108,6 +108,7 @@ namespace Unit06
         public static int PROJECTILE_WIDTH = 5;
         public static int PROJECTILE_HEIGHT = 4;
         public static int PROJECTILE_VELOCITY = 12;
+        public static int PROJECTILE_DAMAGE = 5;
         public static string PROJECTILE_GROUP = "projectiles";
         public static string PROJECTILE_IMAGE = "Assets/Images/Arcane_Effect_1.png";
         public static List<string> PROJECTILE_IMAGES
@@ -141,6 +142,7 @@ namespace Unit06
         public static int ENEMY_RATE = 6;
         public static int ENEMY_VELOCITY = 1;
         public static int ENEMY_DAMAGE = 1;
+        public static int ENEMY_HEALTH = 100;
 
         // BRICK
         public static string BRICK_GROUP = "bricks";
