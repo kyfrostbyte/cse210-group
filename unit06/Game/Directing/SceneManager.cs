@@ -320,6 +320,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new SpawnProjectileAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new CollideEnemyAction(PhysicsService, AudioService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
             
         }

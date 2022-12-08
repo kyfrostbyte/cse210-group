@@ -118,5 +118,31 @@ namespace Unit06.Game.Casting
             }
         }
 
+        public bool GroupIsEmpty(string group)
+        {
+            List<Actor> results = new List<Actor>();
+            if (_actors.ContainsKey(group))
+            {
+                results.AddRange(_actors[group]);
+            }
+            
+            int listLength = results.Count;
+
+            if(listLength > 0)
+            {
+                bool isEmpty = false;
+                return isEmpty;
+            }
+
+            else
+            {
+                bool isEmpty = true;
+                return isEmpty;
+            }
+
+            
+
+        }
+
     }
 }
