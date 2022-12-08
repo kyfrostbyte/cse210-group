@@ -8,6 +8,7 @@ namespace Unit06.Game.Casting
         private Body _body;
         private Animation _animation;
         private int _health;
+        private Point _direction = new Point(0, -5);
         
         /// <summary>
         /// Constructs a new instance of Actor.
@@ -44,6 +45,7 @@ namespace Unit06.Game.Casting
         public void SwingLeft()
         {
             Point velocity = new Point(-Constants.PLAYER_VELOCITY, 0);
+            _direction = velocity;
             _body.SetVelocity(velocity);
         }
 
@@ -53,18 +55,21 @@ namespace Unit06.Game.Casting
         public void SwingRight()
         {
             Point velocity = new Point(Constants.PLAYER_VELOCITY, 0);
+            _direction = velocity;
             _body.SetVelocity(velocity);
         }
 
         public void SwingUp()
         {
             Point velocity = new Point(0, -Constants.PLAYER_VELOCITY);
+            _direction = velocity;
             _body.SetVelocity(velocity);
         }
 
         public void SwingDown()
         {
             Point velocity = new Point(0, Constants.PLAYER_VELOCITY);
+            _direction = velocity;
             _body.SetVelocity(velocity);
         }
 
@@ -74,6 +79,7 @@ namespace Unit06.Game.Casting
         public void SwingUpLeft()
         {
             Point velocity = new Point(-Constants.PLAYER_VELOCITY, -Constants.PLAYER_VELOCITY);
+            _direction = velocity;
             _body.SetVelocity(velocity);
         }
 
@@ -83,6 +89,7 @@ namespace Unit06.Game.Casting
         public void SwingUpRight()
         {
             Point velocity = new Point(Constants.PLAYER_VELOCITY, -Constants.PLAYER_VELOCITY);
+            _direction = velocity;
             _body.SetVelocity(velocity);
         }
 
@@ -92,6 +99,7 @@ namespace Unit06.Game.Casting
         public void SwingDownLeft()
         {
             Point velocity = new Point(-Constants.PLAYER_VELOCITY, Constants.PLAYER_VELOCITY);
+            _direction = velocity;
             _body.SetVelocity(velocity);
         }
 
@@ -101,7 +109,13 @@ namespace Unit06.Game.Casting
         public void SwingDownRight()
         {
             Point velocity = new Point(Constants.PLAYER_VELOCITY, Constants.PLAYER_VELOCITY);
+            _direction = velocity;
             _body.SetVelocity(velocity);
+        }
+
+        public Point GetDirection()
+        {
+            return _direction;
         }
 
         public int GetHealth()
