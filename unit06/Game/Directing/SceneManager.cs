@@ -72,7 +72,6 @@ namespace Unit06.Game.Directing
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddPlayer(cast);
-            AddEnemy(cast);
             AddDialog(cast, Constants.PREP_TO_LAUNCH);
 
             script.ClearAllActions();
@@ -193,11 +192,33 @@ namespace Unit06.Game.Directing
         private void AddEnemy(Cast cast)
         {
             cast.ClearActors(Constants.ENEMY_GROUP);
+            int x = 0;
+            int y = 0;
             Random random = new Random();
             for (int i = 0; i < 10; i++)
             {
-                int x = Constants.CENTER_X / (i + 2);
-                int y = Constants.CENTER_Y / (i + 2);
+                int _side = random.Next(1,5);
+
+                if (_side == 1)
+                {
+                    x = random.Next(0, 1200);
+                    y = 0;
+                }
+                else if (_side == 2)
+                {
+                    x = random.Next(0, 1200);
+                    y = 750;
+                }
+                else if (_side == 3)
+                {
+                    x = 0;
+                    y = random.Next(0, 800);
+                }
+                else if(_side == 4)
+                {
+                    x = 1150;
+                    y = random.Next(0, 800);
+                }
 
                 Point position = new Point(x, y);
                 Point size = new Point(Constants.ENEMY_WIDTH, Constants.ENEMY_HEIGHT);

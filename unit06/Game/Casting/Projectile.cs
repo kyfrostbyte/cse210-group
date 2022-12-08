@@ -12,7 +12,7 @@ namespace Unit06.Game.Casting
         private Body _body;
         private Image _image;
     
-
+    
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
