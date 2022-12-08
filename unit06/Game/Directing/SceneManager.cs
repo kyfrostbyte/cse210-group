@@ -216,14 +216,12 @@ namespace Unit06.Game.Directing
         {
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             Body playerBody = player.GetBody();
-
             Point position = playerBody.GetPosition();
             Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
             Image image = new Image(Constants.PROJECTILE_IMAGE);
             Point velocity = playerBody.GetVelocity();
             
             Body projectileBody = new Body(position, size, velocity);
-
             Projectile projectile = new Projectile(projectileBody, image, false);
             cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
         }

@@ -15,12 +15,22 @@ namespace Unit06.Game.Scripting
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             Body playerBody = player.GetBody();
 
-            Point position1 = body.GetPosition();
-            Point velocity = playerBody.GetVelocity();
+            Point position = body.GetPosition();
+            Point velocity = body.GetVelocity();
 
-            Point position = position1.Add(velocity);
 
-            body.SetPosition(position);  
+            Point pointZero = new Point(0, 0);
+            Point pointMove = new Point(0, -5);
+
+            if (velocity == pointZero)
+            {
+                velocity = pointMove;
+            }
+            
+
+            Point newPosition = position.Add(velocity);
+            
+            body.SetPosition(newPosition);
         }
     }
 }
