@@ -23,6 +23,8 @@ namespace Unit06.Game.Scripting
 
             Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
             List<Actor> enemies = cast.GetActors(Constants.ENEMY_GROUP);
+            Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
+
 
             foreach (Actor actor in enemies)
             {
@@ -37,7 +39,9 @@ namespace Unit06.Game.Scripting
 
                     cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
                     cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
-                    
+
+                    int points = 10;
+                    stats.AddPoints(points);
                 }
             }
         }

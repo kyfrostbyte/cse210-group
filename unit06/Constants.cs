@@ -93,9 +93,11 @@ namespace Unit06
         public static string LEVEL_GROUP = "level";
         public static string LIVES_GROUP = "lives";
         public static string SCORE_GROUP = "score";
+        public static string HEALTH_GROUP = "health";
         public static string LEVEL_FORMAT = "LEVEL: {0}";
         public static string LIVES_FORMAT = "LIVES: {0}";
-        public static string SCORE_FORMAT = "HEALTH: {0}";
+        public static string SCORE_FORMAT = "SCORE: {0}";
+        public static string HEALTH_FORMAT = "HEALTH: {0}";
 
         // BALL
         public static string BALL_GROUP = "balls";
@@ -143,6 +145,7 @@ namespace Unit06
         public static int ENEMY_VELOCITY = 1;
         public static int ENEMY_DAMAGE = 1;
         public static int ENEMY_HEALTH = 100;
+        public static int ENEMY_COUNT = 10;
 
         // BRICK
         public static string BRICK_GROUP = "bricks";
