@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using Unit06.Game.Casting;
+using Unit06.Game.Services;
+
+
+namespace Unit06.Game.Scripting
+{
+    public class CollideEnemyAction : Action
+    {
+        private AudioService _audioService;
+        private PhysicsService _physicsService;
+        
+        public CollideEnemyAction(PhysicsService physicsService, AudioService audioService)
+        {
+            this._physicsService = physicsService;
+            this._audioService = audioService;
+        }
+
+        public void Execute(Cast cast, Script script, ActionCallback callback)
+        {
+            // Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);  POINTS RELATED
+
+            Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
+            List<Actor> enemies = cast.GetActors(Constants.ENEMY_GROUP);
+
+            foreach (Actor actor in enemies)
+            {
+                Enemy enemy = (Enemy)actor;
+                Body enemyBody = enemy.GetBody();
+                Body projectileBody = projectile.GetBody();
+
+                if (_physicsService.HasCollided(projectileBody, enemyBody))
+                {
+                    Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                    _audioService.PlaySound(sound);
+
+                    cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
+                    cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
+                    
+                }
+            }
+        }
+    }
+}

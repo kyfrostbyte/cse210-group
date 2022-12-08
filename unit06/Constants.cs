@@ -105,8 +105,8 @@ namespace Unit06
         public static int BALL_VELOCITY = 6;
 
         // Projectiles
-        public static int PROJECTILE_WIDTH = 5;
-        public static int PROJECTILE_HEIGHT = 4;
+        public static int PROJECTILE_WIDTH = 50;
+        public static int PROJECTILE_HEIGHT = 40;
         public static int PROJECTILE_VELOCITY = 12;
         public static int PROJECTILE_DAMAGE = 5;
         public static string PROJECTILE_GROUP = "projectiles";
