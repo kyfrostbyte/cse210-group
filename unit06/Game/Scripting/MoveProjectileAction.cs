@@ -11,25 +11,21 @@ namespace Unit06.Game.Scripting
         {
             Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
             Body body = projectile.GetBody();
-
-            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
-            Body playerBody = player.GetBody();
-
             Point position = body.GetPosition();
             Point velocity = body.GetVelocity();
 
+            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
+            Body playerBody = player.GetBody();
+            Point direction = player.GetDirection();
+
             Point pointZero = new Point(0, 0);
-            Point pointMove = new Point(0, -5);
 
             if(velocity.Equals(pointZero))
             {
-                body.SetVelocity(pointMove);
+                body.SetVelocity(direction);
             }
 
-            Point velocity1 = body.GetVelocity();
-
-            Point newPosition = position.Add(velocity1);
-
+            Point newPosition = position.Add(velocity);
             body.SetPosition(newPosition);
         }
     }
