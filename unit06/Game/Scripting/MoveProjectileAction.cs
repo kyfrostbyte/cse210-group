@@ -18,18 +18,18 @@ namespace Unit06.Game.Scripting
             Point position = body.GetPosition();
             Point velocity = body.GetVelocity();
 
-
             Point pointZero = new Point(0, 0);
             Point pointMove = new Point(0, -5);
 
-            if (velocity == pointZero)
+            if(velocity.Equals(pointZero))
             {
-                velocity = pointMove;
+                body.SetVelocity(pointMove);
             }
-            
 
-            Point newPosition = position.Add(velocity);
-            
+            Point velocity1 = body.GetVelocity();
+
+            Point newPosition = position.Add(velocity1);
+
             body.SetPosition(newPosition);
         }
     }
