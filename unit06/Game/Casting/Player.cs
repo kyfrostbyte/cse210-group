@@ -8,7 +8,6 @@ namespace Unit06.Game.Casting
         private Body _body;
         private Animation _animation;
         private int _health;
-        private int _image;
         
         /// <summary>
         /// Constructs a new instance of Actor.
