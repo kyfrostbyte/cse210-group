@@ -17,17 +17,20 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            Enemy enemy = (Enemy)cast.GetFirstActor(Constants.ENEMY_GROUP);
-            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
-            Body enemyBody = enemy.GetBody();
-            Body playerBody = player.GetBody();
-            
-            if (_physicsService.HasCollided(playerBody, enemyBody))
+            if(!cast.GroupIsEmpty(Constants.ENEMY_GROUP))
             {
-                Sound sound = new Sound(Constants.BOUNCE_SOUND);
-                _audioService.PlaySound(sound);
-                player.HitPlayer(Constants.ENEMY_DAMAGE);
+                Enemy enemy = (Enemy)cast.GetFirstActor(Constants.ENEMY_GROUP);
+                Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
+                Body enemyBody = enemy.GetBody();
+                Body playerBody = player.GetBody();
                 
+                if (_physicsService.HasCollided(playerBody, enemyBody))
+                {
+                    Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                    _audioService.PlaySound(sound);
+                    player.HitPlayer(Constants.ENEMY_DAMAGE);
+                    
+                }
             }
         }
     }

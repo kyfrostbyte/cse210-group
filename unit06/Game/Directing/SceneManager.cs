@@ -68,17 +68,6 @@ namespace Unit06.Game.Directing
             AddOutputActions(script);
             AddUnloadActions(script);
             AddReleaseActions(script);
-            // Stopwatch timer = new Stopwatch();
-            // timer.Start();
-            // while(timer.Elapsed.TotalSeconds < 5)
-            // {
-                
-            //     Sound sound = new Sound(Constants.BOUNCE_SOUND);
-            //     AudioService.PlaySound(sound);
-            //     AddProjectile(cast);
-            // }
-            // timer.Stop();
-            
         }
 
 
@@ -263,24 +252,6 @@ namespace Unit06.Game.Directing
             }
         }
 
-        // private void AddProjectile(Cast cast)
-        // {
-            
-        //     Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
-        //     Body playerBody = player.GetBody();
-        //     Point playerPosition = playerBody.GetPosition();
-        //     Point playerVelocity = playerBody.GetVelocity();
-        
-        //     Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
-        //     Image image = new Image(Constants.PROJECTILE_IMAGE);
-        
-
-        //     Body projectileBody = new Body(playerPosition, size, playerVelocity);
-        //     Projectile projectile = new Projectile(projectileBody, image, false);
-
-        //     cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
-        // }
-
 
         private List<List<string>> LoadLevel(string filename)
         {
@@ -322,6 +293,14 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new CollideEnemyAction(PhysicsService, AudioService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
+
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            if(timer.Elapsed.TotalSeconds % 5 ==0)
+            {
+                script.AddAction(Constants.OUTPUT, new SpawnProjectileAction(VideoService));
+            }
+            timer.Stop();
             
         }
 
