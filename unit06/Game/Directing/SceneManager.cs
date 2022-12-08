@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Diagnostics;
 using Unit06.Game.Casting;
 using Unit06.Game.Scripting;
 using Unit06.Game.Services;
@@ -47,14 +48,14 @@ namespace Unit06.Game.Directing
 
         private void PrepareNewGame(Cast cast, Script script)
         {
-
+            
             AddStats(cast);
             AddLevel(cast);
             AddScore(cast);
             AddLives(cast);
             AddPlayer(cast);
             AddEnemy(cast);
-            AddProjectile(cast);
+
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -67,6 +68,14 @@ namespace Unit06.Game.Directing
             AddOutputActions(script);
             AddUnloadActions(script);
             AddReleaseActions(script);
+            Stopwatch timer = new Stopwatch();
+            timer.Start();
+            while(timer.Elapsed.TotalSeconds < 5)
+            {
+                AddProjectile(cast);
+            }
+            timer.Stop();
+            
         }
 
 

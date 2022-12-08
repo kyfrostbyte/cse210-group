@@ -30,7 +30,20 @@ namespace Unit06.Game.Scripting
         Point position = body.GetPosition();
         _videoService.DrawImage(image, position);
 
-        
+        int positionX = position.GetX();
+        int positionY = position.GetY();
+
+        if(positionX > 1250 || positionX < -50)
+        {
+            cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
+        }
+
+        if(positionY > 850 || positionY < -50)
+        {
+            cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
+        }
+
+
 
     }
     }
