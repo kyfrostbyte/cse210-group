@@ -54,6 +54,7 @@ namespace Unit06.Game.Directing
             AddLives(cast);
             AddPlayer(cast);
             AddEnemy(cast);
+            AddProjectile(cast);
             AddDialog(cast, Constants.ENTER_TO_START);
 
             script.ClearAllActions();
@@ -232,6 +233,22 @@ namespace Unit06.Game.Directing
             }
         }
 
+        private void AddProjectile(Cast cast)
+        {
+            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
+            Body playerBody = player.GetBody();
+
+            Point position = playerBody.GetPosition();
+            Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
+            Image image = new Image(Constants.PROJECTILE_IMAGE);
+            Point velocity = playerBody.GetVelocity();
+            
+            Body projectileBody = new Body(position, size, velocity);
+
+            Projectile projectile = new Projectile(projectileBody, image, false);
+            cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
+        }
+
         private void AddScore(Cast cast)
         {
             cast.ClearActors(Constants.SCORE_GROUP);
@@ -287,6 +304,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawProjectileAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
         }
@@ -306,6 +324,7 @@ namespace Unit06.Game.Directing
         {
             script.AddAction(Constants.UPDATE, new MovePlayerAction());
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
+            script.AddAction(Constants.UPDATE, new MoveProjectileAction());
             script.AddAction(Constants.UPDATE, new CollidePlayerAction(PhysicsService, AudioService));
 
             // script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));

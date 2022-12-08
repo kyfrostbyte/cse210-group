@@ -18,8 +18,10 @@ namespace Unit06.Game.Casting
         /// </summary>
         public Projectile(Body body, Image image, bool debug = false) : base(debug)
         {
+            // IF velocity = 0 do something else statment, else take velocity from player...
+            
             this._body = body;
-
+            this._image = image;
         }
 
         
