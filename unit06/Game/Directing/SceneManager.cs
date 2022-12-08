@@ -50,7 +50,7 @@ namespace Unit06.Game.Directing
         {
             
             AddStats(cast);
-            AddLevel(cast);
+            AddHealth(cast);
             AddScore(cast);
             AddLives(cast);
             AddPlayer(cast);
@@ -158,18 +158,6 @@ namespace Unit06.Game.Directing
             cast.AddActor(Constants.DIALOG_GROUP, label);
         }
 
-        private void AddLevel(Cast cast)
-        {
-            cast.ClearActors(Constants.LEVEL_GROUP);
-
-            Text text = new Text(Constants.LEVEL_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
-                Constants.ALIGN_LEFT, Constants.WHITE);
-            Point position = new Point(Constants.HUD_MARGIN, Constants.HUD_MARGIN);
-
-            Label label = new Label(text, position);
-            cast.AddActor(Constants.LEVEL_GROUP, label);
-        }
-
         private void AddLives(Cast cast)
         {
             cast.ClearActors(Constants.LIVES_GROUP);
@@ -181,6 +169,36 @@ namespace Unit06.Game.Directing
 
             Label label = new Label(text, position);
             cast.AddActor(Constants.LIVES_GROUP, label);
+        }
+
+        private void AddScore(Cast cast)
+        {
+            cast.ClearActors(Constants.SCORE_GROUP);
+
+            Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
+                Constants.ALIGN_LEFT, Constants.WHITE);
+            Point position = new Point(Constants.HUD_MARGIN, Constants.HUD_MARGIN);
+
+            Label label = new Label(text, position);
+            cast.AddActor(Constants.SCORE_GROUP, label);
+        }
+        private void AddHealth(Cast cast)
+        {
+            cast.ClearActors(Constants.HEALTH_GROUP);
+
+            Text text = new Text(Constants.HEALTH_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
+                Constants.ALIGN_CENTER, Constants.WHITE);
+            Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
+
+            Label label = new Label(text, position);
+            cast.AddActor(Constants.HEALTH_GROUP, label);
+        }
+
+        private void AddStats(Cast cast)
+        {
+            cast.ClearActors(Constants.STATS_GROUP);
+            Stats stats = new Stats();
+            cast.AddActor(Constants.STATS_GROUP, stats);
         }
 
         private void AddPlayer(Cast cast)
@@ -208,7 +226,7 @@ namespace Unit06.Game.Directing
             int x = 0;
             int y = 0;
             Random random = new Random();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < Constants.ENEMY_COUNT; i++)
             {
                 int _side = random.Next(1,5);
 
@@ -263,24 +281,6 @@ namespace Unit06.Game.Directing
         //     cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
         // }
 
-        private void AddScore(Cast cast)
-        {
-            cast.ClearActors(Constants.SCORE_GROUP);
-
-            Text text = new Text(Constants.SCORE_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
-                Constants.ALIGN_CENTER, Constants.WHITE);
-            Point position = new Point(Constants.CENTER_X, Constants.HUD_MARGIN);
-
-            Label label = new Label(text, position);
-            cast.AddActor(Constants.SCORE_GROUP, label);
-        }
-
-        private void AddStats(Cast cast)
-        {
-            cast.ClearActors(Constants.STATS_GROUP);
-            Stats stats = new Stats();
-            cast.AddActor(Constants.STATS_GROUP, stats);
-        }
 
         private List<List<string>> LoadLevel(string filename)
         {
@@ -344,7 +344,6 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new DrawProjectileAction(VideoService));
 
             // script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
-            // script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CheckOverAction());     
         }
     }
