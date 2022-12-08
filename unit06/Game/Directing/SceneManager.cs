@@ -68,13 +68,16 @@ namespace Unit06.Game.Directing
             AddOutputActions(script);
             AddUnloadActions(script);
             AddReleaseActions(script);
-            Stopwatch timer = new Stopwatch();
-            timer.Start();
-            while(timer.Elapsed.TotalSeconds < 5)
-            {
-                AddProjectile(cast);
-            }
-            timer.Stop();
+            // Stopwatch timer = new Stopwatch();
+            // timer.Start();
+            // while(timer.Elapsed.TotalSeconds < 5)
+            // {
+                
+            //     Sound sound = new Sound(Constants.BOUNCE_SOUND);
+            //     AudioService.PlaySound(sound);
+            //     AddProjectile(cast);
+            // }
+            // timer.Stop();
             
         }
 
@@ -242,19 +245,23 @@ namespace Unit06.Game.Directing
             }
         }
 
-        private void AddProjectile(Cast cast)
-        {
-            Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
-            Body playerBody = player.GetBody();
-            Point position = playerBody.GetPosition();
-            Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
-            Image image = new Image(Constants.PROJECTILE_IMAGE);
-            Point velocity = playerBody.GetVelocity();
+        // private void AddProjectile(Cast cast)
+        // {
             
-            Body projectileBody = new Body(position, size, velocity);
-            Projectile projectile = new Projectile(projectileBody, image, false);
-            cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
-        }
+        //     Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
+        //     Body playerBody = player.GetBody();
+        //     Point playerPosition = playerBody.GetPosition();
+        //     Point playerVelocity = playerBody.GetVelocity();
+        
+        //     Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
+        //     Image image = new Image(Constants.PROJECTILE_IMAGE);
+        
+
+        //     Body projectileBody = new Body(playerPosition, size, playerVelocity);
+        //     Projectile projectile = new Projectile(projectileBody, image, false);
+
+        //     cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
+        // }
 
         private void AddScore(Cast cast)
         {
@@ -311,9 +318,10 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawProjectileAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new SpawnProjectileAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
+            
         }
 
         private void AddUnloadActions(Script script)
@@ -333,6 +341,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
             script.AddAction(Constants.UPDATE, new MoveProjectileAction());
             script.AddAction(Constants.UPDATE, new CollidePlayerAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new DrawProjectileAction(VideoService));
 
             // script.AddAction(Constants.UPDATE, new CollideBordersAction(PhysicsService, AudioService));
             // script.AddAction(Constants.UPDATE, new CollideBrickAction(PhysicsService, AudioService));

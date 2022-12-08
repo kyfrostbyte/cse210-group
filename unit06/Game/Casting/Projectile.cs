@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-
 namespace Unit06.Game.Casting
 {
     /// <summary>
@@ -11,6 +10,8 @@ namespace Unit06.Game.Casting
     {
         private Body _body;
         private Image _image;
+        private Point _bodyPosition;
+        
     
     
         /// <summary>
@@ -18,7 +19,7 @@ namespace Unit06.Game.Casting
         /// </summary>
         public Projectile(Body body, Image image, bool debug = false) : base(debug)
         {
-            // IF velocity = 0 do something else statment, else take velocity from player...
+            // IF velocity = 0 do something else statment, else take velocity from player..
             
             this._body = body;
             this._image = image;

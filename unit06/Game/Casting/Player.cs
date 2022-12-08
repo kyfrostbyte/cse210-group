@@ -128,15 +128,6 @@ namespace Unit06.Game.Casting
             _health = _health - ENEMY_DAMAGE;
         }
 
-        public void ShootProjectile()
-        {
-            Point position = _body.GetPosition();
-            Point velocity = _body.GetVelocity();
-            // Projectile projectile = new Projectile(_body, _image, false);
-
-        }
-
-
         /// <summary>
         /// Stops the player from moving.
         /// </summary>

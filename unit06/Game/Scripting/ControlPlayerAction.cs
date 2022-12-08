@@ -81,11 +81,6 @@ namespace Unit06.Game.Scripting
             {
                 player.StopMoving();
             }
-
-            if (_keyboardService.IsKeyDown(Constants.SPACE))
-            {
-                player.ShootProjectile();
-            }
         }
     }
 }

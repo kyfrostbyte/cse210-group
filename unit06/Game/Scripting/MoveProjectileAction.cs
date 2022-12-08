@@ -10,23 +10,22 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
             Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
-            Body body = projectile.GetBody();
-            Point position = body.GetPosition();
-            Point velocity = body.GetVelocity();
+            Body projectileBody = projectile.GetBody();
+            Point position = projectileBody.GetPosition();
+            Point velocity = projectileBody.GetVelocity();
 
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
-            Body playerBody = player.GetBody();
-            Point direction = player.GetDirection();
-
+            Point playerDirection = player.GetDirection();
             Point pointZero = new Point(0, 0);
-
+            
             if(velocity.Equals(pointZero))
             {
-                body.SetVelocity(direction);
+                projectileBody.SetVelocity(playerDirection);
             }
 
-            Point newPosition = position.Add(velocity);
-            body.SetPosition(newPosition);
+            
+            Point newPosition = position.Add(velocity.Scale(2));
+            projectileBody.SetPosition(newPosition);
         }
     }
 }
