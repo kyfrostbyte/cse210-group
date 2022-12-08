@@ -29,6 +29,7 @@ namespace Unit06.Game.Scripting
         Image image = projectile.GetImage();
         Point position = body.GetPosition();
         _videoService.DrawImage(image, position);
+        
     }
     }
 }
