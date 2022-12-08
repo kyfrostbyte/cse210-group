@@ -37,16 +37,6 @@ namespace Unit06.Game.Casting
             return _body;
         }
 
-        /// <summary>
-        /// Moves the player to its next position.
-        /// </summary>
-        public void MoveNext()
-        {
-            Point position = _body.GetPosition();
-            Point velocity = _body.GetVelocity();
-            Point newPosition = position.Add(velocity);
-            _body.SetPosition(newPosition);
-        }
 
         /// <summary>
         /// Swings the player to the left.

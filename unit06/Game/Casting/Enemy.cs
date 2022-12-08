@@ -7,14 +7,16 @@ namespace Unit06.Game.Casting
     {
         private Body _body;
         private Animation _animation;
+        private int _enemyHealth;
         
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Enemy(Body body, Animation animation, bool debug) : base(debug)
+        public Enemy(Body body, Animation animation, bool debug, int enemyHealth) : base(debug)
         {
             this._body = body;
             this._animation = animation;
+            this._enemyHealth = enemyHealth;
         }
 
         /// <summary>
@@ -33,6 +35,16 @@ namespace Unit06.Game.Casting
         public Body GetBody()
         {
             return _body;
+        }
+
+        public int GetEnemyHealth()
+        {
+            return _enemyHealth;
+        }
+
+        public void hitEnemy(int PROJECTILE_DAMAGE)
+        {
+            _enemyHealth = _enemyHealth - PROJECTILE_DAMAGE;
         }
 
         
