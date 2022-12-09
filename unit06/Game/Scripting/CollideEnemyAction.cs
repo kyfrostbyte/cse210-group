@@ -20,28 +20,30 @@ namespace Unit06.Game.Scripting
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
             // Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);  POINTS RELATED
-
-            Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
-            List<Actor> enemies = cast.GetActors(Constants.ENEMY_GROUP);
-            Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-
-
-            foreach (Actor actor in enemies)
+            if(!cast.GroupIsEmpty(Constants.PROJECTILE_GROUP))
             {
-                Enemy enemy = (Enemy)actor;
-                Body enemyBody = enemy.GetBody();
-                Body projectileBody = projectile.GetBody();
+                Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
+                List<Actor> enemies = cast.GetActors(Constants.ENEMY_GROUP);
+                Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
 
-                if (_physicsService.HasCollided(projectileBody, enemyBody))
+
+                foreach (Actor actor in enemies)
                 {
-                    Sound sound = new Sound(Constants.BOUNCE_SOUND);
-                    _audioService.PlaySound(sound);
+                    Enemy enemy = (Enemy)actor;
+                    Body enemyBody = enemy.GetBody();
+                    Body projectileBody = projectile.GetBody();
 
-                    cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
-                    cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
+                    if (_physicsService.HasCollided(projectileBody, enemyBody))
+                    {
+                        Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                        _audioService.PlaySound(sound);
 
-                    int points = 10;
-                    stats.AddPoints(points);
+                        cast.RemoveActor(Constants.ENEMY_GROUP, enemy);
+                        cast.RemoveActor(Constants.PROJECTILE_GROUP, projectile);
+
+                        int points = 10;
+                        stats.AddPoints(points);
+                    }
                 }
             }
         }

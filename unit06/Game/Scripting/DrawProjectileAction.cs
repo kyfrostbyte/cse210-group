@@ -15,6 +15,8 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
+            if(!cast.GroupIsEmpty(Constants.PROJECTILE_GROUP))
+            {
             Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);
             Body body = projectile.GetBody();
 
@@ -46,6 +48,7 @@ namespace Unit06.Game.Scripting
             if(positionY > Constants.SCREEN_HEIGHT || positionY < -50)
             {
                 cast.ClearActors(Constants.PROJECTILE_GROUP);
+            }
             }
         }
     }

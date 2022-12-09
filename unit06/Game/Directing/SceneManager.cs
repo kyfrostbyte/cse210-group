@@ -288,19 +288,11 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new StartDrawingAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new SpawnProjectileAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new CollideEnemyAction(PhysicsService, AudioService));
-            script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
-
-            Stopwatch timer = new Stopwatch();
-            timer.Start();
-            if(timer.Elapsed.TotalSeconds % 5 ==0)
-            {
-                script.AddAction(Constants.OUTPUT, new SpawnProjectileAction(VideoService));
-            }
-            timer.Stop();
+             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
             
         }
 
