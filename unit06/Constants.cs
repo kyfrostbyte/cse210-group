@@ -115,9 +115,15 @@ namespace Unit06
         public static int PROJECTILE_DAMAGE = 5;
         public static string PROJECTILE_GROUP = "projectiles";
         public static string PROJECTILE_IMAGE = "Assets/Images/Arcane_Effect_1.png";
-        public static List<string> PROJECTILE_IMAGES
+         public static List<string> PROJECTILE_IMAGES
             = new List<string>() {
                 "Assets/Images/Arcane_Effect_1.png",
+                "Assets/Images/Arcane_Effect_2.png",
+                "Assets/Images/Arcane_Effect_3.png",
+                "Assets/Images/Arcane_Effect_4.png",
+                "Assets/Images/Arcane_Effect_5.png",
+                "Assets/Images/Arcane_Effect_6.png",
+                "Assets/Images/Arcane_Effect_7.png"
             };
 
         // RACKET
@@ -138,7 +144,7 @@ namespace Unit06
         public static string ENEMY_GROUP = "enemys";
         public static List<string> ENEMY_IMAGES
             = new List<string>() {
-                "Assets/Images/goblingood.png",
+                "Assets/Images/goblingood.png"
             };
 
         public static int ENEMY_WIDTH = 50;

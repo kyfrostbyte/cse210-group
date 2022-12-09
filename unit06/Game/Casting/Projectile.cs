@@ -9,7 +9,7 @@ namespace Unit06.Game.Casting
     public class Projectile : Actor
     {
         private Body _body;
-        private Image _image;
+        private Animation _animation;
         private Point _bodyPosition;
         
     
@@ -17,12 +17,12 @@ namespace Unit06.Game.Casting
         /// <summary>
         /// Constructs a new instance of Actor.
         /// </summary>
-        public Projectile(Body body, Image image, bool debug = false) : base(debug)
+        public Projectile(Body body, Animation animation, bool debug = false) : base(debug)
         {
             // IF velocity = 0 do something else statment, else take velocity from player..
             
             this._body = body;
-            this._image = image;
+            this._animation = animation;
         }
 
         
@@ -39,9 +39,9 @@ namespace Unit06.Game.Casting
         /// Gets the image.
         /// </summary>
         /// <returns>The image.</returns>
-        public Image GetImage()
+        public Animation GetAnimation()
         {
-            return _image;
+            return _animation;
         }
     }
 }  

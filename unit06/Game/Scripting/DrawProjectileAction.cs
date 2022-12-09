@@ -32,9 +32,9 @@ namespace Unit06.Game.Scripting
                 _videoService.DrawRectangle(size, pos, Constants.PURPLE, false);
             }
 
-            Image image = projectile.GetImage();
+            Animation animation = projectile.GetAnimation();
+            Image image = animation.NextImage();
             Point position = body.GetPosition();
-
             _videoService.DrawImage(image, position);
 
             int positionX = position.GetX();
