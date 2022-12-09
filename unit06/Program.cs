@@ -10,8 +10,6 @@ namespace Unit06
         {
             Director director = new Director(SceneManager.VideoService);
             director.StartGame();
-
-            // grant silly
         }
     }
 }

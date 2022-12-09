@@ -10,7 +10,6 @@ namespace Unit06.Game.Casting
     {
         private Body _body;
         private Animation _animation;
-        private Point _bodyPosition;
         
     
     
