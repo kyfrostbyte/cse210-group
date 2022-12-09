@@ -11,6 +11,7 @@ namespace Unit06.Game.Directing
 {
     public class SceneManager
     {
+        Stopwatch timer = new Stopwatch();
         public static AudioService AudioService = new RaylibAudioService();
         public static KeyboardService KeyboardService = new RaylibKeyboardService();
         public static MouseService MouseService = new RaylibMouseService();
@@ -48,7 +49,6 @@ namespace Unit06.Game.Directing
 
         private void PrepareNewGame(Cast cast, Script script)
         {
-            
             AddStats(cast);
             AddHealth(cast);
             AddScore(cast);
@@ -149,15 +149,15 @@ namespace Unit06.Game.Directing
 
         private void AddLives(Cast cast)
         {
-            cast.ClearActors(Constants.LIVES_GROUP);
+            cast.ClearActors(Constants.TIME_GROUP);
 
-            Text text = new Text(Constants.LIVES_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
+            Text text = new Text(Constants.TIME_FORMAT, Constants.FONT_FILE, Constants.FONT_SIZE,
                 Constants.ALIGN_RIGHT, Constants.WHITE);
             Point position = new Point(Constants.SCREEN_WIDTH - Constants.HUD_MARGIN,
                 Constants.HUD_MARGIN);
 
             Label label = new Label(text, position);
-            cast.AddActor(Constants.LIVES_GROUP, label);
+            cast.AddActor(Constants.TIME_GROUP, label);
         }
 
         private void AddScore(Cast cast)
@@ -193,19 +193,12 @@ namespace Unit06.Game.Directing
         private void AddPlayer(Cast cast)
         {
             cast.ClearActors(Constants.PLAYER_GROUP);
-
-            int x = Constants.CENTER_X;
-            int y = Constants.CENTER_Y;
-
-            Point position = new Point(x, y);
+            Point position = new Point(Constants.CENTER_X, Constants.CENTER_Y);
             Point size = new Point(Constants.PLAYER_WIDTH, Constants.PLAYER_HEIGHT);
             Point velocity = new Point(0, 0);
-
             Body body = new Body(position, size, velocity);
             Animation animation = new Animation(Constants.PLAYER_IMAGES, Constants.PLAYER_RATE, 0);
-
             Player player = new Player(body, animation, false, Constants.PLAYER_HEALTH);
-
             cast.AddActor(Constants.PLAYER_GROUP, player);
         }
 
@@ -292,7 +285,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new CollideEnemyAction(PhysicsService, AudioService));
-             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
             
         }
 

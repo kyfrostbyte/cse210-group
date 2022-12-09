@@ -92,11 +92,11 @@ namespace Unit06
         // HUD
         public static int HUD_MARGIN = 15;
         public static string LEVEL_GROUP = "level";
-        public static string LIVES_GROUP = "lives";
+        public static string TIME_GROUP = "time";
         public static string SCORE_GROUP = "score";
         public static string HEALTH_GROUP = "health";
         public static string LEVEL_FORMAT = "LEVEL: {0}";
-        public static string LIVES_FORMAT = "LIVES: {0}";
+        public static string TIME_FORMAT = "TIME: {0}";
         public static string SCORE_FORMAT = "SCORE: {0}";
         public static string HEALTH_FORMAT = "HEALTH: {0}";
 
