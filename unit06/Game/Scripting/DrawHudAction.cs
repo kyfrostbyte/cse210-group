@@ -22,9 +22,6 @@ namespace Unit06.Game.Scripting
             double timer = Raylib.GetTime();
             string timer1 = timer.ToString("#");
 
-            
-
-
             DrawLabel(cast, Constants.SCORE_GROUP, Constants.SCORE_FORMAT, stats.GetScore());
             DrawTextLabel(cast, Constants.TIME_GROUP, Constants.TIME_FORMAT, timer1);
             DrawLabel(cast, Constants.HEALTH_GROUP, Constants.HEALTH_FORMAT, player.GetHealth());
