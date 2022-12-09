@@ -10,6 +10,7 @@ namespace Unit06.Game.Directing
 {
     public class SceneManager
     {
+        public DateTime _start;
         public static AudioService AudioService = new RaylibAudioService();
         public static KeyboardService KeyboardService = new RaylibKeyboardService();
         public static MouseService MouseService = new RaylibMouseService();
@@ -47,6 +48,7 @@ namespace Unit06.Game.Directing
 
         private void PrepareNewGame(Cast cast, Script script)
         {
+
             AddStats(cast);
             AddHealth(cast);
             AddScore(cast);
@@ -67,6 +69,13 @@ namespace Unit06.Game.Directing
             AddUnloadActions(script);
             AddReleaseActions(script);
         }
+
+        public DateTime getStart()
+        {
+            return _start;
+
+        }
+
 
 
         private void PrepareNextLevel(Cast cast, Script script)
@@ -141,9 +150,17 @@ namespace Unit06.Game.Directing
                 Constants.ALIGN_CENTER, Constants.WHITE);
             Point position = new Point(Constants.CENTER_X, Constants.CENTER_Y);
 
+            Text text2 = new Text("Move with WASD", Constants.FONT_FILE, Constants.FONT_SIZE,
+                Constants.ALIGN_CENTER, Constants.WHITE);
+            Point position2 = new Point(Constants.CENTER_X, Constants.CENTER_Y + 100);
+
             Label label = new Label(text, position);
+            Label label2 = new Label(text2, position2);
             cast.AddActor(Constants.DIALOG_GROUP, label);
+            cast.AddActor(Constants.DIALOG_GROUP, label2);
         }
+
+        
 
         private void AddLives(Cast cast)
         {
