@@ -34,7 +34,7 @@ namespace Unit06.Game.Scripting
 
                     if (_physicsService.HasCollided(projectileBody, enemyBody))
                     {
-                        Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                        Sound sound = new Sound(Constants.ENEMY_GROAN_SOUND);
                         _audioService.PlaySound(sound);
 
                         cast.RemoveActor(Constants.ENEMY_GROUP, enemy);

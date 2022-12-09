@@ -284,8 +284,6 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new CollideEnemyAction(PhysicsService, AudioService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
-            script.AddAction(Constants.OUTPUT, new DrawProjectileAction(VideoService));   
-            
         }
 
         private void AddUnloadActions(Script script)
@@ -304,6 +302,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MovePlayerAction());
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
             script.AddAction(Constants.UPDATE, new MoveProjectileAction());
+            script.AddAction(Constants.UPDATE, new DrawProjectileAction(VideoService));   
             script.AddAction(Constants.UPDATE, new CollidePlayerAction(PhysicsService, AudioService));
         }
     }
