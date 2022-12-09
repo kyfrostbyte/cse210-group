@@ -1,7 +1,7 @@
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
-using System.Diagnostics;
 using Raylib_cs;
+
 
 
 namespace Unit06.Game.Scripting
@@ -10,6 +10,7 @@ namespace Unit06.Game.Scripting
     {
         private VideoService _videoService;
         public string timer;
+        
         
         public DrawHudAction(VideoService videoService)
         {
@@ -20,6 +21,7 @@ namespace Unit06.Game.Scripting
         {
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
+
             double timer1 = Raylib.GetTime();
             string timer = timer1.ToString("#");
 
@@ -49,6 +51,5 @@ namespace Unit06.Game.Scripting
             Point position = label.GetPosition();
             _videoService.DrawText(text, position);
         }
-
     }
 }

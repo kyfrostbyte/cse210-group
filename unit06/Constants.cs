@@ -12,7 +12,7 @@ namespace Unit06
         // ----------------------------------------------------------------------------------------- 
 
         // GAME
-        public static string GAME_NAME = "TEST_GAME";
+        public static string GAME_NAME = "Survivor";
         public static int FRAME_RATE = 60;
 
         // SCREEN
@@ -41,7 +41,6 @@ namespace Unit06
         public static int ALIGN_LEFT = 0;
         public static int ALIGN_CENTER = 1;
         public static int ALIGN_RIGHT = 2;
-
 
         // COLORS
         public static Color BLACK = new Color(0, 0, 0);
@@ -101,7 +100,6 @@ namespace Unit06
         public static string SCORE_FORMAT = "SCORE: {0}";
         public static string HEALTH_FORMAT = "HEALTH: {0}";
 
-
         // BALL
         public static string BALL_GROUP = "balls";
         public static string BALL_IMAGE = "Assets/Images/000.png";
@@ -127,9 +125,8 @@ namespace Unit06
                 "Assets/Images/Arcane_Effect_7.png"
             };
 
-        // RACKET
+        // PLAYER
         public static string PLAYER_GROUP = "players";
-        
         public static List<string> PLAYER_IMAGES
             = new List<string>() {
                 "Assets/Images/100.png",
@@ -155,63 +152,6 @@ namespace Unit06
         public static int ENEMY_DAMAGE = 1;
         public static int ENEMY_HEALTH = 100;
         public static int ENEMY_COUNT = 10;
-
-    // BRICK
-    public static string BRICK_GROUP = "bricks";
-    
-    public static Dictionary<string, List<string>> BRICK_IMAGES
-        = new Dictionary<string, List<string>>() {
-            { "b", new List<string>() {
-                "Assets/Images/010.png",
-                "Assets/Images/011.png",
-                "Assets/Images/012.png",
-                "Assets/Images/013.png",
-                "Assets/Images/014.png",
-                "Assets/Images/015.png",
-                "Assets/Images/016.png",
-                "Assets/Images/017.png",
-                "Assets/Images/018.png"
-            } },
-            { "g", new List<string>() {
-                "Assets/Images/020.png",
-                "Assets/Images/021.png",
-                "Assets/Images/022.png",
-                "Assets/Images/023.png",
-                "Assets/Images/024.png",
-                "Assets/Images/025.png",
-                "Assets/Images/026.png",
-                "Assets/Images/027.png",
-                "Assets/Images/028.png"
-            } },
-            { "p", new List<string>() {
-                "Assets/Images/030.png",
-                "Assets/Images/031.png",
-                "Assets/Images/032.png",
-                "Assets/Images/033.png",
-                "Assets/Images/034.png",
-                "Assets/Images/035.png",
-                "Assets/Images/036.png",
-                "Assets/Images/037.png",
-                "Assets/Images/038.png"
-            } },
-            { "y", new List<string>() {
-                "Assets/Images/040.png",
-                "Assets/Images/041.png",
-                "Assets/Images/042.png",
-                "Assets/Images/043.png",
-                "Assets/Images/044.png",
-                "Assets/Images/045.png",
-                "Assets/Images/046.png",
-                "Assets/Images/047.png",
-                "Assets/Images/048.png"
-            } }
-    };
-
-        public static int BRICK_WIDTH = 80;
-        public static int BRICK_HEIGHT = 28;
-        public static double BRICK_DELAY = 0.5;
-        public static int BRICK_RATE = 4;
-        public static int BRICK_POINTS = 50;
 
         // DIALOG
         public static string DIALOG_GROUP = "dialogs";

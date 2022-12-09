@@ -84,7 +84,6 @@ namespace Unit06.Game.Casting
                     _startTime = currentTime;
                 }
             }
-
             return image; 
         }
     }
