@@ -9,6 +9,7 @@ namespace Unit06.Game.Scripting
     public class DrawHudAction : Action
     {
         private VideoService _videoService;
+        public string timer;
         
         public DrawHudAction(VideoService videoService)
         {
@@ -19,11 +20,11 @@ namespace Unit06.Game.Scripting
         {
             Player player = (Player)cast.GetFirstActor(Constants.PLAYER_GROUP);
             Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);
-            double timer = Raylib.GetTime();
-            string timer1 = timer.ToString("#");
+            double timer1 = Raylib.GetTime();
+            string timer = timer1.ToString("#");
 
             DrawLabel(cast, Constants.SCORE_GROUP, Constants.SCORE_FORMAT, stats.GetScore());
-            DrawTextLabel(cast, Constants.TIME_GROUP, Constants.TIME_FORMAT, timer1);
+            DrawTextLabel(cast, Constants.TIME_GROUP, Constants.TIME_FORMAT, timer);
             DrawLabel(cast, Constants.HEALTH_GROUP, Constants.HEALTH_FORMAT, player.GetHealth());
         }
 
