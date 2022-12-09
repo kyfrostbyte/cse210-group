@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 
-
 namespace Unit06.Game.Casting
 {
     /// <summary>

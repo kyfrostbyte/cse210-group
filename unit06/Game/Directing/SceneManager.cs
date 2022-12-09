@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Diagnostics;
 using Unit06.Game.Casting;
 using Unit06.Game.Scripting;
 using Unit06.Game.Services;
@@ -11,7 +10,6 @@ namespace Unit06.Game.Directing
 {
     public class SceneManager
     {
-        Stopwatch timer = new Stopwatch();
         public static AudioService AudioService = new RaylibAudioService();
         public static KeyboardService KeyboardService = new RaylibKeyboardService();
         public static MouseService MouseService = new RaylibMouseService();
@@ -286,6 +284,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new CollideEnemyAction(PhysicsService, AudioService));
             script.AddAction(Constants.OUTPUT, new EndDrawingAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new DrawProjectileAction(VideoService));   
             
         }
 
@@ -306,7 +305,6 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveEnemyAction());
             script.AddAction(Constants.UPDATE, new MoveProjectileAction());
             script.AddAction(Constants.UPDATE, new CollidePlayerAction(PhysicsService, AudioService));
-            script.AddAction(Constants.UPDATE, new DrawProjectileAction(VideoService));   
         }
     }
 }

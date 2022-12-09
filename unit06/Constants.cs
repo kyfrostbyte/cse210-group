@@ -35,6 +35,7 @@ namespace Unit06
         public static string BOUNCE_SOUND = "Assets/Sounds/boing.wav";
         public static string WELCOME_SOUND = "Assets/Sounds/start.wav";
         public static string OVER_SOUND = "Assets/Sounds/over.wav";
+        public static string ENEMY_GROAN_SOUND = "Assets/Sounds/groan.wav";
 
         // TEXT
         public static int ALIGN_LEFT = 0;
@@ -155,56 +156,56 @@ namespace Unit06
         public static int ENEMY_HEALTH = 100;
         public static int ENEMY_COUNT = 10;
 
-        // BRICK
-        public static string BRICK_GROUP = "bricks";
-        
-        public static Dictionary<string, List<string>> BRICK_IMAGES
-            = new Dictionary<string, List<string>>() {
-                { "b", new List<string>() {
-                    "Assets/Images/010.png",
-                    "Assets/Images/011.png",
-                    "Assets/Images/012.png",
-                    "Assets/Images/013.png",
-                    "Assets/Images/014.png",
-                    "Assets/Images/015.png",
-                    "Assets/Images/016.png",
-                    "Assets/Images/017.png",
-                    "Assets/Images/018.png"
-                } },
-                { "g", new List<string>() {
-                    "Assets/Images/020.png",
-                    "Assets/Images/021.png",
-                    "Assets/Images/022.png",
-                    "Assets/Images/023.png",
-                    "Assets/Images/024.png",
-                    "Assets/Images/025.png",
-                    "Assets/Images/026.png",
-                    "Assets/Images/027.png",
-                    "Assets/Images/028.png"
-                } },
-                { "p", new List<string>() {
-                    "Assets/Images/030.png",
-                    "Assets/Images/031.png",
-                    "Assets/Images/032.png",
-                    "Assets/Images/033.png",
-                    "Assets/Images/034.png",
-                    "Assets/Images/035.png",
-                    "Assets/Images/036.png",
-                    "Assets/Images/037.png",
-                    "Assets/Images/038.png"
-                } },
-                { "y", new List<string>() {
-                    "Assets/Images/040.png",
-                    "Assets/Images/041.png",
-                    "Assets/Images/042.png",
-                    "Assets/Images/043.png",
-                    "Assets/Images/044.png",
-                    "Assets/Images/045.png",
-                    "Assets/Images/046.png",
-                    "Assets/Images/047.png",
-                    "Assets/Images/048.png"
-                } }
-        };
+    // BRICK
+    public static string BRICK_GROUP = "bricks";
+    
+    public static Dictionary<string, List<string>> BRICK_IMAGES
+        = new Dictionary<string, List<string>>() {
+            { "b", new List<string>() {
+                "Assets/Images/010.png",
+                "Assets/Images/011.png",
+                "Assets/Images/012.png",
+                "Assets/Images/013.png",
+                "Assets/Images/014.png",
+                "Assets/Images/015.png",
+                "Assets/Images/016.png",
+                "Assets/Images/017.png",
+                "Assets/Images/018.png"
+            } },
+            { "g", new List<string>() {
+                "Assets/Images/020.png",
+                "Assets/Images/021.png",
+                "Assets/Images/022.png",
+                "Assets/Images/023.png",
+                "Assets/Images/024.png",
+                "Assets/Images/025.png",
+                "Assets/Images/026.png",
+                "Assets/Images/027.png",
+                "Assets/Images/028.png"
+            } },
+            { "p", new List<string>() {
+                "Assets/Images/030.png",
+                "Assets/Images/031.png",
+                "Assets/Images/032.png",
+                "Assets/Images/033.png",
+                "Assets/Images/034.png",
+                "Assets/Images/035.png",
+                "Assets/Images/036.png",
+                "Assets/Images/037.png",
+                "Assets/Images/038.png"
+            } },
+            { "y", new List<string>() {
+                "Assets/Images/040.png",
+                "Assets/Images/041.png",
+                "Assets/Images/042.png",
+                "Assets/Images/043.png",
+                "Assets/Images/044.png",
+                "Assets/Images/045.png",
+                "Assets/Images/046.png",
+                "Assets/Images/047.png",
+                "Assets/Images/048.png"
+            } }
+    };
 
         public static int BRICK_WIDTH = 80;
         public static int BRICK_HEIGHT = 28;

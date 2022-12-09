@@ -26,10 +26,9 @@ namespace Unit06.Game.Scripting
                 
                 if (_physicsService.HasCollided(playerBody, enemyBody))
                 {
-                    Sound sound = new Sound(Constants.BOUNCE_SOUND);
+                    Sound sound = new Sound(Constants.ENEMY_GROAN_SOUND);
                     _audioService.PlaySound(sound);
                     player.HitPlayer(Constants.ENEMY_DAMAGE);
-                    
                 }
             }
         }
