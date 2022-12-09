@@ -19,7 +19,6 @@ namespace Unit06.Game.Scripting
 
         public void Execute(Cast cast, Script script, ActionCallback callback)
         {
-            // Stats stats = (Stats)cast.GetFirstActor(Constants.STATS_GROUP);  POINTS RELATED
             if(!cast.GroupIsEmpty(Constants.PROJECTILE_GROUP))
             {
                 Projectile projectile = (Projectile)cast.GetFirstActor(Constants.PROJECTILE_GROUP);

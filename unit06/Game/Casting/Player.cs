@@ -11,7 +11,7 @@ namespace Unit06.Game.Casting
         private Point _direction = new Point(0, -5);
         
         /// <summary>
-        /// Constructs a new instance of Actor.
+        /// Constructs a new instance of Player.
         /// </summary>
         public Player(Body body, Animation animation, bool debug, int health) : base(debug)
         {
@@ -59,6 +59,9 @@ namespace Unit06.Game.Casting
             _body.SetVelocity(velocity);
         }
 
+        /// <summary>
+        /// Swings the player up.
+        /// </summary>
         public void SwingUp()
         {
             Point velocity = new Point(0, -Constants.PLAYER_VELOCITY);
@@ -66,6 +69,9 @@ namespace Unit06.Game.Casting
             _body.SetVelocity(velocity);
         }
 
+        /// <summary>
+        /// Swings the player down.
+        /// </summary>
         public void SwingDown()
         {
             Point velocity = new Point(0, Constants.PLAYER_VELOCITY);
@@ -113,27 +119,32 @@ namespace Unit06.Game.Casting
             _body.SetVelocity(velocity);
         }
 
+        /// <summary>
+        /// Gets the direction.
+        /// </summary>
+        /// <returns>The direction.</returns>
         public Point GetDirection()
         {
             return _direction;
         }
 
+        /// <summary>
+        /// Gets the players heath.
+        /// </summary>
+        /// <returns>The players health.</returns>
         public int GetHealth()
         {
             return _health;
         }
 
+        /// <summary>
+        /// Reduces player health if hit
+        /// </summary>
+
         public void HitPlayer(int ENEMY_DAMAGE)
         {
             _health = _health - ENEMY_DAMAGE;
         }
-
-        public void ShootProjectile()
-        {
-            Point position = _body.GetPosition();
-            Point velocity = _body.GetVelocity();
-        }
-
 
         /// <summary>
         /// Stops the player from moving.

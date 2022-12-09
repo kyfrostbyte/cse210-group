@@ -118,6 +118,11 @@ namespace Unit06.Game.Casting
             }
         }
 
+        /// <summary>
+        /// Checks to see if the given group is empty or not
+        /// </summary>
+        /// <param name="group">The group name</param>
+        /// <returns>The true or false</returns>
         public bool GroupIsEmpty(string group)
         {
             List<Actor> results = new List<Actor>();
@@ -139,10 +144,6 @@ namespace Unit06.Game.Casting
                 bool isEmpty = true;
                 return isEmpty;
             }
-
-            
-
         }
-
     }
 }

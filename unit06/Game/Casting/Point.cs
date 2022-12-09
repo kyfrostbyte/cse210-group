@@ -85,10 +85,5 @@ namespace Unit06.Game.Casting
             int y = this._y * factor;
             return new Point(x, y);
         }
-
-        // public Point SetPoint(int x, int y)
-        // {
-        //     return new Point(x, y);
-        // }
     }
 }

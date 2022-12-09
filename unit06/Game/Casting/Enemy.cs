@@ -10,7 +10,7 @@ namespace Unit06.Game.Casting
         private int _enemyHealth;
         
         /// <summary>
-        /// Constructs a new instance of Actor.
+        /// Constructs a new instance of Enemy.
         /// </summary>
         public Enemy(Body body, Animation animation, bool debug, int enemyHealth) : base(debug)
         {
@@ -37,11 +37,18 @@ namespace Unit06.Game.Casting
             return _body;
         }
 
+        /// <summary>
+        /// Gets the enemy health
+        /// </summary>
+        /// <returns> Enemy Health </returns>
         public int GetEnemyHealth()
         {
             return _enemyHealth;
         }
-
+        /// <summary>
+        /// Reduces the enemy health by 
+        /// projectile damage amount
+        /// </summary>
         public void hitEnemy(int PROJECTILE_DAMAGE)
         {
             _enemyHealth = _enemyHealth - PROJECTILE_DAMAGE;
