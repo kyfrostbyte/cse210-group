@@ -70,14 +70,6 @@ namespace Unit06.Game.Directing
             AddReleaseActions(script);
         }
 
-        public DateTime getStart()
-        {
-            return _start;
-
-        }
-
-
-
         private void PrepareNextLevel(Cast cast, Script script)
         {
             AddPlayer(cast);
