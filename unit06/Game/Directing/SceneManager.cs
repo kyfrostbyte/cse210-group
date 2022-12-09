@@ -227,7 +227,7 @@ namespace Unit06.Game.Directing
                 else if (_side == 2)
                 {
                     x = random.Next(0, 1200);
-                    y = 750;
+                    y = 750; 
                 }
                 else if (_side == 3)
                 {
@@ -289,6 +289,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.OUTPUT, new DrawHudAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawPlayerAction(VideoService));
             script.AddAction(Constants.OUTPUT, new SpawnProjectileAction(VideoService));
+            script.AddAction(Constants.OUTPUT, new SpawnEnemiesAction(VideoService, DateTime.Now));
             script.AddAction(Constants.OUTPUT, new DrawEnemyAction(VideoService));
             script.AddAction(Constants.OUTPUT, new DrawDialogAction(VideoService));
             script.AddAction(Constants.OUTPUT, new CollideEnemyAction(PhysicsService, AudioService));
