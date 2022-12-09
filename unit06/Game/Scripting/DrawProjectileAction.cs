@@ -38,12 +38,12 @@ namespace Unit06.Game.Scripting
             int positionX = position.GetX();
             int positionY = position.GetY();
 
-            if(positionX > 1250 || positionX < -50)
+            if(positionX > Constants.SCREEN_WIDTH || positionX < -50)
             {
                 cast.ClearActors(Constants.PROJECTILE_GROUP);
             }
 
-            if(positionY > 850 || positionY < -50)
+            if(positionY > Constants.SCREEN_HEIGHT || positionY < -50)
             {
                 cast.ClearActors(Constants.PROJECTILE_GROUP);
             }

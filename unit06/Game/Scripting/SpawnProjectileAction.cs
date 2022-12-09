@@ -1,6 +1,7 @@
 using Unit06.Game.Casting;
 using Unit06.Game.Services;
-
+using System.Diagnostics;
+using System;
 
 namespace Unit06.Game.Scripting
 {
@@ -27,8 +28,8 @@ namespace Unit06.Game.Scripting
 
             Body projectileBody = new Body(playerPosition, size, playerVelocity);
             Projectile projectile = new Projectile(projectileBody, image, false);
-            
             cast.AddActor(Constants.PROJECTILE_GROUP, projectile);
+            
         }
     }
 }

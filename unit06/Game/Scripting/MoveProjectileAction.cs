@@ -25,7 +25,6 @@ namespace Unit06.Game.Scripting
                     projectileBody.SetVelocity(playerDirection);
                 }
 
-                
                 Point newPosition = position.Add(velocity.Scale(2));
                 projectileBody.SetPosition(newPosition);
             }
