@@ -10,7 +10,7 @@ namespace Unit06.Game.Scripting
         private VideoService _videoService;
         private double _delay = 2;
         private DateTime _start;
-        private int _numberToSpawn = 1;
+        int _numberToSpawn = 1;
 
         
         public SpawnEnemiesAction(VideoService videoService, DateTime start)
@@ -30,9 +30,9 @@ namespace Unit06.Game.Scripting
             TimeSpan elapsedTime = currentTime.Subtract(_start);
             // Console.WriteLine(elapsedTime);
             // Console.WriteLine(elapsedTime.Seconds);
-            if (elapsedTime.Seconds > _delay)
+            if (Math.Round(elapsedTime.TotalSeconds, MidpointRounding.AwayFromZero) > _delay)
             { 
-                for (int i = 0; i < 1; i++)
+                for (int test = _numberToSpawn; test > 0; test--)
                 {
                     int _side = random.Next(1,5);
 
@@ -65,17 +65,9 @@ namespace Unit06.Game.Scripting
                     Animation animation = new Animation(Constants.ENEMY_IMAGES, Constants.ENEMY_RATE, 0);
                     Enemy enemy = new Enemy(body, animation, false, Constants.ENEMY_HEALTH);
                     cast.AddActor(Constants.ENEMY_GROUP, enemy);
-
-                    i = 0;
-                    Console.WriteLine(elapsedTime);
-                    Console.WriteLine(elapsedTime.Seconds);
-                    Console.WriteLine(_delay);
-                    _delay += 1;
-                    if(_delay == 59)
-                    {
-                        _delay = 1;
-                    }
                 }
+                _delay += 2;
+                _numberToSpawn += 1;
             }
         }
     }
