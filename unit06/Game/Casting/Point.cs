@@ -34,6 +34,12 @@ namespace Unit06.Game.Casting
             int y = this._y + other.GetY();
             return new Point(x, y);
         }
+        public Point Multiply(Point other)
+        {
+            int x = this._x * 10;
+            int y = this._y * 10;
+            return new Point(x, y);
+        }
 
         /// <summary>
         /// Whether or not this Point is equal to the given one.

@@ -108,8 +108,8 @@ namespace Unit06
         public static int BALL_VELOCITY = 6;
 
         // Projectiles
-        public static int PROJECTILE_WIDTH = 50;
-        public static int PROJECTILE_HEIGHT = 40;
+        public static int PROJECTILE_WIDTH = 25;
+        public static int PROJECTILE_HEIGHT = 20;
         public static int PROJECTILE_VELOCITY = 12;
         public static int PROJECTILE_DAMAGE = 5;
         public static string PROJECTILE_GROUP = "projectiles";
@@ -132,8 +132,8 @@ namespace Unit06
                 "Assets/Images/100.png",
             };
 
-        public static int PLAYER_WIDTH = 50;
-        public static int PLAYER_HEIGHT = 44;
+        public static int PLAYER_WIDTH = 55;
+        public static int PLAYER_HEIGHT = 48;
         public static int PLAYER_RATE = 6;
         public static int PLAYER_VELOCITY = 7;
         public static int PLAYER_HEALTH = 1000;

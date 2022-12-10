@@ -128,6 +128,11 @@ namespace Unit06.Game.Casting
             return _direction;
         }
 
+        public Point GetShootDirection()
+        {
+            return _direction.Multiply(_direction);
+        }
+
         /// <summary>
         /// Gets the players heath.
         /// </summary>

@@ -24,7 +24,7 @@ namespace Unit06.Game.Scripting
             
             Point size = new Point(Constants.PROJECTILE_WIDTH, Constants.PROJECTILE_HEIGHT);
             Animation animation = new Animation(Constants.PROJECTILE_IMAGES, Constants.ENEMY_RATE, 0);
-            Body projectileBody = new Body(playerPosition, size, playerVelocity);
+            Body projectileBody = new Body(playerPosition.Add(player.GetShootDirection()), size, playerVelocity);
             
             Projectile projectile = new Projectile(projectileBody, animation, false);
 
