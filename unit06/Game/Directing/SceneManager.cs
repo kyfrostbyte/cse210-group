@@ -123,7 +123,7 @@ namespace Unit06.Game.Directing
 
             script.ClearAllActions();
 
-            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.NEW_GAME, 5, DateTime.Now);
+            TimedChangeSceneAction ta = new TimedChangeSceneAction(Constants.GAME_OVER, 5, DateTime.Now);
             script.AddAction(Constants.INPUT, ta);
 
             AddOutputActions(script);
@@ -314,6 +314,7 @@ namespace Unit06.Game.Directing
             script.AddAction(Constants.UPDATE, new MoveProjectileAction());
             script.AddAction(Constants.UPDATE, new DrawProjectileAction(VideoService));   
             script.AddAction(Constants.UPDATE, new CollidePlayerAction(PhysicsService, AudioService));
+            script.AddAction(Constants.UPDATE, new CheckGameOverAction());
         }
     }
 }
